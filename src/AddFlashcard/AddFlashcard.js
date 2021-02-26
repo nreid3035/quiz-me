@@ -1,19 +1,30 @@
 import React from 'react'
+import QuizMeContext from '../QuizMeContext'
 
 class AddFlashcard extends React.Component {
+    static contextType = QuizMeContext
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const newFlashcard = {
+            cardId: this.context.flashcards.length + 1,
+            question: e.target['question'].value,
+            answer: e.target['answer'].value
+        }
+        this.context.handleAddFlashcard(newFlashcard)
+        this.props.history.push(`/flashcards-list`)
+    }
+    
     render() {
         return (
             <div>
                 <h2>Add Flashcard</h2>
-                <form>
-                    <label for="question">Question</label>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
+                    <label htmlFor="question">Question</label>
                     <input type="text" name="question" id="question"/>
-                    <label for="answer">Answer</label>
+                    <label htmlFor="answer">Answer</label>
                     <input type="text" name="answer" id="answer"/>
-                    <select id="folder-selection">
-                        <option value={null}>...</option>
-                    </select>
-                    <button type="submit"></button>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         )

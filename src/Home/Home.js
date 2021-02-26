@@ -13,7 +13,7 @@ class Home extends React.Component {
                         <Link to={'/home'}>
                           <li>Home</li>                        
                         </Link>
-                        <Link to={'/flashcards'}>
+                        <Link to={'/flashcards-list'}>
                           <li>Flashcards</li>                        
                         </Link>
                     </ul>

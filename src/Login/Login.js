@@ -7,9 +7,9 @@ class Login extends React.Component {
             <div>
                 <h2>Login Page</h2>
                 <form>
-                    <label for="username">Username</label>
+                    <label htmlFor="username">Username</label>
                     <input type="text" name="username" id="username"/>
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input type="text" name="password" id="password"/>
                     <Link to={'/home'}>
                     <button>Submit</button>

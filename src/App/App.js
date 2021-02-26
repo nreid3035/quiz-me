@@ -7,7 +7,10 @@ import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
 import MakeQuiz from '../MakeQuiz/MakeQuiz'
 import Quizzes from "../Quizzes/Quizzes";
-import Flashcards from "../Flashcards/Flashcards";
+import FlashcardsList from "../FlashcardsList/FlashcardsList";
+import QuizMeContext from '../QuizMeContext'
+import FlashcardActive from '../FlashcardActive/FlashcardActive'
+import './App.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,20 +18,43 @@ class App extends React.Component {
     this.state = {
       flashcards: [
         {
+          cardId: 1,
           question: "2 + 2",
           answer: "4",
-          folderId: null
+          isChecked: false
         },
         {
+          cardId: 2,
           question: "Who was the first president of the United States",
           answer: "George Washington",
-          folderId: null
+          isChecked: false
         }
       ],
       quizzes: [
-        
+        {
+          name: 'First Quiz',
+          flashcardIds: [1, 2]
+        }
       ]
     }
+  }
+
+  handleAddFlashcard = (flashcard) => {
+    this.setState({
+      flashcards: [
+        ...this.state.flashcards,
+        flashcard
+      ]
+    })
+  }
+
+  handleAddQuiz = (newQuiz) => {
+    this.setState({
+      quizzes: [
+        ...this.state.quizzes,
+        newQuiz
+      ]
+    })
   }
 
   renderMainRoutes = () => {
@@ -63,15 +89,27 @@ class App extends React.Component {
               component={Quizzes}
               />
           <Route 
-              path={'/flashcards'}
-              component={Flashcards}
+              path={'/flashcards-list'}
+              component={FlashcardsList}
+              />
+          <Route 
+              path={'/flashcard/:cardId'}
+              component={FlashcardActive}
               />
       </>
   }
 
   render() {
+    const value = {
+      flashcards: this.state.flashcards,
+      quizzes: this.state.quizzes,
+      handleAddFlashcard: this.handleAddFlashcard,
+      handleAddQuiz: this.handleAddQuiz
+    }
+    console.log(this.state.quizzes)
     return (
-      <div>
+      <QuizMeContext.Provider value={value}>
+      <>
         <header>
           <Link to={'/'}>
           <h1>Quiz Me!</h1>          
@@ -83,7 +121,8 @@ class App extends React.Component {
         <footer>
           <h4>&copy;Nicholas Reid</h4>
         </footer>
-      </div>
+      </>
+      </QuizMeContext.Provider>
     )
   }
 }
