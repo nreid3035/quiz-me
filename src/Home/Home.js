@@ -7,7 +7,7 @@ class Home extends React.Component {
             <div>
                 <nav>
                     <ul>
-                        <Link to={'/quizzes'}>
+                        <Link to={'/quizzes-list'}>
                           <li>Quizzes</li>
                         </Link>
                         <Link to={'/home'}>

@@ -6,10 +6,11 @@ import LandingPage from "../LandingPage/LandingPage";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
 import MakeQuiz from '../MakeQuiz/MakeQuiz'
-import Quizzes from "../Quizzes/Quizzes";
+import QuizzesList from "../QuizzesList/QuizzesList";
 import FlashcardsList from "../FlashcardsList/FlashcardsList";
 import QuizMeContext from '../QuizMeContext'
 import FlashcardActive from '../FlashcardActive/FlashcardActive'
+import ViewQuiz from '../ViewQuiz/ViewQuiz'
 import './App.css'
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
       ],
       quizzes: [
         {
+          quizId: "1",
           name: 'First Quiz',
           flashcardIds: [1, 2]
         }
@@ -85,8 +87,8 @@ class App extends React.Component {
               component={MakeQuiz}
               />
           <Route 
-              path={'/quizzes'}
-              component={Quizzes}
+              path={'/quizzes-list'}
+              component={QuizzesList}
               />
           <Route 
               path={'/flashcards-list'}
@@ -95,6 +97,10 @@ class App extends React.Component {
           <Route 
               path={'/flashcard/:cardId'}
               component={FlashcardActive}
+              />
+          <Route 
+              path={'/quizzes/:quizId'}
+              component={ViewQuiz}
               />
       </>
   }
@@ -106,7 +112,6 @@ class App extends React.Component {
       handleAddFlashcard: this.handleAddFlashcard,
       handleAddQuiz: this.handleAddQuiz
     }
-    console.log(this.state.quizzes)
     return (
       <QuizMeContext.Provider value={value}>
       <>
