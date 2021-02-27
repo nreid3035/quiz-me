@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// SIGNUP FORM FOR THE QUIZ ME APP CURRENTLY MAKING NO REQUESTS
+
 class Signup extends React.Component {
     render() {
         return (
             <div>
               <h1>Signup Page</h1>
+                {/*MUST ADD REQUIREMENTS, VALIDATIONS, AND ERRORS TO FIELDS */}
                 <form>
                     <label htmlFor="first-name">First Name</label>
                     <input type="text" name="first-name" id="first-name"/>

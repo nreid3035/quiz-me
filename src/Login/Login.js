@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// LOGIN PAGE FOR THE QUIZ ME APP CURRENTLY MAKING NO REQUESTS
+
 class Login extends React.Component {
     render() {
         return (
             <div>
                 <h2>Login Page</h2>
+                {/* MUST ADD REQUIREMENTS, VALIDATIONS, ERRORS TO FORM*/}
                 <form>
                     <label htmlFor="username">Username</label>
                     <input type="text" name="username" id="username"/>
