@@ -14,6 +14,7 @@ class MakeQuiz extends React.Component {
     handleMakeQuiz = (e) => {
         e.preventDefault()
         const newQuiz = {
+            quizId: this.context.quizzes.length + 1,
             name: e.target['quiz-name'].value,
             flashcardIds: [
                 ...this.state.flashcardsForQuizId
@@ -29,7 +30,7 @@ class MakeQuiz extends React.Component {
             this.setState({
                 flashcardsForQuizId: [
                     ...this.state.flashcardsForQuizId,
-                    e.target.id
+                    Number(e.target.id)
                 ]
             })
         } else {

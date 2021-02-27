@@ -1,6 +1,7 @@
 import React from 'react'
 import QuizMeContext from '../QuizMeContext'
 import Quiz from '../Quiz/Quiz'
+import { Link } from 'react-router-dom'
 
 class QuizzesList extends React.Component {
     static contextType = QuizMeContext
@@ -17,7 +18,9 @@ class QuizzesList extends React.Component {
             <ul>
             {quizElements}
             </ul>
-            
+            <Link to="/make-quiz">
+            <button>Make Quiz</button>            
+            </Link>
             </>
         )
     }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import QuizMeContext from '../QuizMeContext'
 
 class FlashcardActive extends React.Component {

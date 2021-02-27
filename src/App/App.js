@@ -11,6 +11,8 @@ import FlashcardsList from "../FlashcardsList/FlashcardsList";
 import QuizMeContext from '../QuizMeContext'
 import FlashcardActive from '../FlashcardActive/FlashcardActive'
 import ViewQuiz from '../ViewQuiz/ViewQuiz'
+import QuizStart from '../QuizStart/QuizStart'
+import QuizActive from '../QuizActive/QuizActive'
 import './App.css'
 
 class App extends React.Component {
@@ -102,6 +104,14 @@ class App extends React.Component {
               path={'/quizzes/:quizId'}
               component={ViewQuiz}
               />
+          <Route 
+              path={'/quiz-start/:quizId'}
+              component={QuizStart}
+              />
+          <Route 
+              path={'/quiz-active/:quizId'}
+              component={QuizActive}
+              />
       </>
   }
 
@@ -116,7 +126,7 @@ class App extends React.Component {
       <QuizMeContext.Provider value={value}>
       <>
         <header>
-          <Link to={'/'}>
+          <Link to={'/home'}>
           <h1>Quiz Me!</h1>          
           </Link>
         </header>

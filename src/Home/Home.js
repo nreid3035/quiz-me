@@ -10,9 +10,6 @@ class Home extends React.Component {
                         <Link to={'/quizzes-list'}>
                           <li>Quizzes</li>
                         </Link>
-                        <Link to={'/home'}>
-                          <li>Home</li>                        
-                        </Link>
                         <Link to={'/flashcards-list'}>
                           <li>Flashcards</li>                        
                         </Link>

@@ -1,4 +1,5 @@
 import React from 'react' 
+import { Link } from 'react-router-dom'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
 
@@ -14,6 +15,9 @@ class FlashcardsList extends React.Component {
             <div>
               <h1>Flashcards</h1>
               {flashcardComps}
+              <Link to="/add-flashcard">
+              <button>Add Flashcard</button>              
+              </Link>
             </div>           
         )
     }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
 
@@ -10,26 +11,29 @@ class ViewQuiz extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const quizId = Number(this.props.match.params.quizId)
-        console.log(quizId)
         const { flashcards=[] } = this.context
         const { quizzes=[] } = this.context
-        console.log(quizzes)
         const quiz = quizzes[quizId - 1]
         const quizFlashcards = flashcards.filter(card => quiz.flashcardIds.includes(card.cardId))
-        console.log(quizFlashcards)
         const flashcardElements = quizFlashcards.map((card, i) => {
             return <li>
                 <Flashcard card={card} key={i}/>
             </li>
         })
+        console.log(quiz)
+        console.log(quizFlashcards)
+        console.log(flashcardElements)
         return (
             <div>
                 <h1>{quiz.name}</h1>
                 <ul>
                     {flashcardElements}
                 </ul>
-                <button>Take Quiz</button>
+                <Link to={`/quiz-start/${quiz.quizId}`}>
+                  <button>Take Quiz</button>                
+                </Link>
             </div>
         )
     }

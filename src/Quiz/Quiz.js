@@ -10,7 +10,7 @@ class Quiz extends React.Component {
         return (
             <div>
                 <h3>{this.props.quiz.name}</h3>
-                <Link>
+                <Link to={`/quiz-start/${this.props.quiz.quizId}`}>
                   <button>Take Quiz</button>                
                 </Link>
                 <Link to={`/quizzes/${this.props.quiz.quizId}`}>
