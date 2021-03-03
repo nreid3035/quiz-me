@@ -1,6 +1,7 @@
 import React from 'react'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
+import './MakeQuiz.css'
 
 // MAKE QUIZ COMPONENT OF QUIZ ME APP CURRENTLY MAKING NO REQUESTS
 
@@ -77,28 +78,31 @@ class MakeQuiz extends React.Component {
         // ARRAY OF CHECKBOX ELEMENTS MAPPED FROM FLASHCARDS ARRAY
         const flashcardCheckboxes = flashcards.map((card, i) => {
             return (
-                <>
-                    <label htmlFor="checkbox">
-                        <Flashcard card={card} key={i} />
-                    </label>
-                    <input type="checkbox" name="checkbox" id={i + 1} value={card.cardId}
+                <div className="flashcard-checkbox-container">
+                    <input type="checkbox" className="flashcard-checkbox-input" name="checkbox" id={i + 1} value={card.cardId}
                            /* ON CHANGE USE HANDLE CHECKBOX CHANGE FUNCTION, PASS IN EVENT */ 
                            onChange={(e) => this.handleCheckboxChange(e)}/>
-                </>
-            )
+                    <label htmlFor="checkbox" className="flashcard-checkbox-label">
+                        <Flashcard card={card} key={i} />
+                    </label>
+                    
+                </div>
+
+        )
             
         })
         return (
-            <>
-            <h1>Make Quiz</h1>
-            {/* ON SUBMIT OF MAKE QUIZ FORM USE HANDLE MAKE QUIZ FUNCTION, PASS IN EVENT */}
-            <form onSubmit={(e) => this.handleMakeQuiz(e)}>
-                <label htmlFor="quiz-name">Quiz Name</label>
-                <input type="text" name="quiz-name" id="quiz-name"/>
+            <div className="make-quiz-container">
+              <h1>Make Quiz</h1>
+              {/* ON SUBMIT OF MAKE QUIZ FORM USE HANDLE MAKE QUIZ FUNCTION, PASS IN EVENT */}
+            <form onSubmit={(e) => this.handleMakeQuiz(e)} className="make-quiz-form">
+                <label htmlFor="quiz-name" className="quiz-name-label">Quiz Name</label>
+                <input type="text" name="quiz-name" id="quiz-name" className="quiz-name-input"/>
                 {flashcardCheckboxes}
-                <button type="submit">Submit</button>
+                <button type="submit" className="make-quiz-submit">Submit</button>
             </form>
-            </>
+            </div>
+
         )
     }
 }

@@ -127,7 +127,10 @@ class App extends React.Component {
       <>
         <header>
           <Link to={'/home'}>
-          <h1>Quiz Me!</h1>          
+            <h1>Quiz Me!</h1>          
+          </Link>
+          <Link to="/home">
+            <button>Home</button>
           </Link>
         </header>
         <main>

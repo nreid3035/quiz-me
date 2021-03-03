@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './LandingPage.css'
 
 // LANDING PAGE FOR THE QUIZ ME APP  
 
 class LandingPage extends React.Component {
     render() {
         return (
-            <div>
+            <div className="landing-page">
                 {/* HERO IMAGE */}
                 <div>
-                    <img src="" alt="hero-img"/>
+                    <img alt="hero-img"/>
                 </div>
                 {/* TITLE AND CONTENT */}
                 <h1>Quiz Me!</h1>
@@ -20,12 +21,14 @@ class LandingPage extends React.Component {
                     You will be able to use most of the features, but we will not be able to save anything.
                 </p>
                 {/* WE STILL CAN'T SAVE ANYTHING IN THE STATIC CLIENT ANYWAY, BUT THIS IS THE INTENDED USABILITY */}
-                <Link to={'/signup'}>
-                <button>Signup</button>                
-                </Link>
-                <Link to={'/login'}>
-                <button>Login</button>                
-                </Link>
+                <div className="buttons">
+                  <Link to={'/signup'} className="button-link">
+                    <button className="landing-button">Signup</button>                
+                  </Link>
+                  <Link to={'/login'} className="button-link">
+                    <button className="landing-button">Login</button>                
+                  </Link>
+                </div>
             </div>
         )
     }

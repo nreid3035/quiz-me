@@ -1,20 +1,23 @@
 header {
     width: 100%;
-    height: auto;
+    height: 15%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    
 }
 
 main {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 70%;
+    margin: 0px 50px;
+    text-align: center;
 }
 
 footer {
     width: 100%;
-    height: auto;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;

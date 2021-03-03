@@ -1,0 +1,10 @@
+.flash-li {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.view-quiz-flash-list {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,28 @@
+.landing-page {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-link {
+    width: 80%;
+    height: auto;
+}
+
+.buttons {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.landing-button {
+    width: 80%;
+    height: auto;
+    padding: 5px 15px;
+    margin: 10px;
+}

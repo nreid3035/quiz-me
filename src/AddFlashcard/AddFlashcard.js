@@ -1,5 +1,6 @@
 import React from 'react'
 import QuizMeContext from '../QuizMeContext'
+import './AddFlashcard.css'
 
 // ADD FLASHCARD FORM FOR QUIZ ME APP CURRENTLY MAKING NO REQUESTS
 
@@ -28,15 +29,15 @@ class AddFlashcard extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="add-flashcard-container">
                 <h2>Add Flashcard</h2>
                 {/* ADD FLASHCARD FORM */}
-                <form onSubmit={(e) => this.handleSubmit(e)}>
-                    <label htmlFor="question">Question</label>
-                    <input type="text" name="question" id="question"/>
-                    <label htmlFor="answer">Answer</label>
-                    <input type="text" name="answer" id="answer"/>
-                    <button type="submit">Submit</button>
+                <form onSubmit={(e) => this.handleSubmit(e)} className="add-flashcard-form">
+                    <label htmlFor="question" className="add-flash-label">Question</label>
+                    <input type="text" name="question" id="question" className="add-flash-input" required/>
+                    <label htmlFor="answer" className="add-flash-label">Answer</label>
+                    <input type="text" name="answer" id="answer" className="add-flash-input" required/>
+                    <button type="submit" className="add-flash-submit">Submit</button>
                 </form>
             </div>
         )

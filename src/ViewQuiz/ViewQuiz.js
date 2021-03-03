@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
+import './ViewQuiz.css'
 
 class ViewQuiz extends React.Component {
     static contextType = QuizMeContext
@@ -18,17 +19,17 @@ class ViewQuiz extends React.Component {
         const quiz = quizzes[quizId - 1]
         const quizFlashcards = flashcards.filter(card => quiz.flashcardIds.includes(card.cardId))
         const flashcardElements = quizFlashcards.map((card, i) => {
-            return <li>
+            return <li className="flash-li">
                 <Flashcard card={card} key={i}/>
-            </li>
+                   </li>
         })
         console.log(quiz)
         console.log(quizFlashcards)
         console.log(flashcardElements)
         return (
-            <div>
+            <div className="view-quiz-container">
                 <h1>{quiz.name}</h1>
-                <ul>
+                <ul className="view-quiz-flash-list">
                     {flashcardElements}
                 </ul>
                 <Link to={`/quiz-start/${quiz.quizId}`}>
