@@ -1,9 +1,18 @@
+.quizzes-list-title {
+    font-size: 28px;
+    font-family: 'Libre Baskerville', serif;
+}
+
 .quiz-list {
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .quiz-li {
-    border: 1px solid black;
+    width: 100%;
     padding: 10px;
     list-style-type: none;
     margin-bottom: 15px;
@@ -11,6 +20,12 @@
 }
 
 .make-button {
-    width: 80%;
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    background-color: #7FC8FF;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
 }
 

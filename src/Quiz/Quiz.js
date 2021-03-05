@@ -11,16 +11,18 @@ class Quiz extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h3>{this.props.quiz.name}</h3>
+            <div className="quiz-container">
+                <h3 className="quiz-name">{this.props.quiz.name}</h3>
+                <div className="quiz-buttons-conatiner">
                 {/* ROUTE TO THE QUIZ TAKING MODE */}
-                <Link to={`/quiz-start/${this.props.quiz.quizId}`}>
-                  <button>Take Quiz</button>                
-                </Link>
+                  <Link to={`/quiz-start/${this.props.quiz.quizId}`} className="quiz-button-link">
+                    <button className="quiz-button">Take Quiz</button>                
+                  </Link>
                 { /* ROUTE TO LIST VIEW OF ALL FLASHCARDS */}
-                <Link to={`/quizzes/${this.props.quiz.quizId}`}>
-                  <button>View Quiz</button>                
-                </Link>
+                  <Link to={`/quizzes/${this.props.quiz.quizId}`} className="quiz-button-link">
+                    <button className="quiz-button">View Quiz</button>                
+                  </Link>
+                </div>
             </div>
         )
     }

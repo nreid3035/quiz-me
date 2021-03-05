@@ -15,9 +15,9 @@ class Flashcard extends React.Component {
     render() {
         return (
             // ROUTES TO FLASHCARDACTIVE, DISPLAYS QUESTION
-            <Link to={`/flashcard/${this.props.card.cardId}`}>
+            <Link to={`/flashcard/${this.props.card.cardId}`} className="flash-link">
               <div className="flashcard">
-                <h3>Question: {this.props.card.question}</h3> 
+                <h3 className="flash-question">{this.props.card.question}?</h3> 
               </div>
             </Link>
             

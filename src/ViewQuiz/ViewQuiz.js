@@ -19,7 +19,7 @@ class ViewQuiz extends React.Component {
         const quiz = quizzes[quizId - 1]
         const quizFlashcards = flashcards.filter(card => quiz.flashcardIds.includes(card.cardId))
         const flashcardElements = quizFlashcards.map((card, i) => {
-            return <li className="flash-li">
+            return <li className="view-quiz-flash-li">
                 <Flashcard card={card} key={i}/>
                    </li>
         })
@@ -28,12 +28,12 @@ class ViewQuiz extends React.Component {
         console.log(flashcardElements)
         return (
             <div className="view-quiz-container">
-                <h1>{quiz.name}</h1>
+                <h2 className="view-quiz-name">{quiz.name}</h2>
                 <ul className="view-quiz-flash-list">
                     {flashcardElements}
                 </ul>
                 <Link to={`/quiz-start/${quiz.quizId}`}>
-                  <button>Take Quiz</button>                
+                  <button className="take-quiz-button">Take Quiz</button>                
                 </Link>
             </div>
         )

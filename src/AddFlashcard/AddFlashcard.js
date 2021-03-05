@@ -30,7 +30,7 @@ class AddFlashcard extends React.Component {
     render() {
         return (
             <div className="add-flashcard-container">
-                <h2>Add Flashcard</h2>
+                <h2 className="add-flashcard-title">Add Flashcard</h2>
                 {/* ADD FLASHCARD FORM */}
                 <form onSubmit={(e) => this.handleSubmit(e)} className="add-flashcard-form">
                     <label htmlFor="question" className="add-flash-label">Question</label>

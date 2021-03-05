@@ -1,6 +1,7 @@
 import React from 'react'
 import QuizMeContext from '../QuizMeContext'
 import QuizResults from '../QuizResults/QuizResults'
+import './QuizActive.css'
 
 class QuizActive extends React.Component {
     static contextType = QuizMeContext
@@ -74,19 +75,26 @@ class QuizActive extends React.Component {
 
             if (this.state.flipped === false) {
                 return (
-                    <div>
+                    <>
+                    <div className="quiz-active-card">
                         <h2>{flashcard.question}</h2>
-                        <button onClick={() => this.handleFlip()}>FLIP</button>
                     </div>
+                        <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
+                    </>
                 )
             } else {
                 return (
-                    <div>
+                    <>
+                    <div className="quiz-active-card">
                         <h2>{flashcard.answer}</h2>
-                        <button onClick={() => this.handleCorrect()}>Correct</button>
-                        <button onClick={() => this.handleWrong()}>Wrong</button>
-                        <button onClick={() => this.handleFlip()}>FLIP</button>
                     </div>
+                        <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
+                        <div className="response-button-container">
+                            <button onClick={() => this.handleCorrect()} className="response-button">Correct</button>
+                            <button onClick={() => this.handleWrong()} className="response-button">Wrong</button>
+                        </div>
+
+                    </>
                 )
             }
         }

@@ -8,7 +8,7 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-                <h2>Login Page</h2>
+                <h2 className="login-title">Login Page</h2>
                 {/* MUST ADD REQUIREMENTS, VALIDATIONS, ERRORS TO FORM*/}
                 <form className="login-form">
                     <label htmlFor="username" className="login-label">Username</label>

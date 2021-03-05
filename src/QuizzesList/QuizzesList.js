@@ -22,7 +22,7 @@ class QuizzesList extends React.Component {
         })
         return (
             <>
-            <h1>Quizzes</h1>
+            <h2 className="quizzes-list-title">Quizzes</h2>
             <ul className="quiz-list">
               {quizElements}
             </ul>

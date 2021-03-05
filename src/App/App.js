@@ -124,13 +124,13 @@ class App extends React.Component {
     }
     return (
       <QuizMeContext.Provider value={value}>
-      <>
+      <div className="app-container">
         <header>
-          <Link to={'/home'}>
-            <h1>Quiz Me!</h1>          
+          <Link to={'/home'} className="title-link">
+            <h1 className="title">Quiz Me!</h1>          
           </Link>
-          <Link to="/home">
-            <button>Home</button>
+          <Link to="/home" className="home-link">
+            <button className="home-button">Home</button>
           </Link>
         </header>
         <main>
@@ -139,7 +139,8 @@ class App extends React.Component {
         <footer>
           <h4>&copy;Nicholas Reid</h4>
         </footer>
-      </>
+        </div>
+
       </QuizMeContext.Provider>
     )
   }

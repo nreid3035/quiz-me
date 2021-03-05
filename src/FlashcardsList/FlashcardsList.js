@@ -23,15 +23,15 @@ class FlashcardsList extends React.Component {
             )
         })
         return (
-            <div>
-              <h1>Flashcards</h1>
+            <>
+              <h2 className="flashcard-list-title">Flashcards</h2>
               <ul className="flashcard-list">
                 {flashcardComps}
               </ul>
               <Link to="/add-flashcard">
-                <button>Add Flashcard</button>              
+                <button className="add-flashcard-button">Add Flashcard</button>              
               </Link>
-            </div>           
+            </>           
         )
     }
 }

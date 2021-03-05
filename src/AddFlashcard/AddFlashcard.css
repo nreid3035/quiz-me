@@ -1,3 +1,8 @@
+.add-flashcard-title {
+    font-size: 28px;
+    font-family: 'Libre Baskerville', serif;
+}
+
 .add-flashcard-container {
     width: 100%;
     display: flex;
@@ -7,7 +12,7 @@
 }
 
 .add-flashcard-form {
-    width: 80%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -16,13 +21,22 @@
 .add-flash-label {
     text-align: left;
     padding: 5px;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
 }
 
 .add-flash-input {
-    padding: 5px 10px;
-    margin-bottom: 10px
+    padding: 25px 10px;
+    margin-bottom: 10px;
 }
 
 .add-flash-submit {
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
     margin-top: 25px;
+    background-color: #7FC8FF;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
 }

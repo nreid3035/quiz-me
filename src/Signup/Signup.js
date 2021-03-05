@@ -8,7 +8,7 @@ class Signup extends React.Component {
     render() {
         return (
             <div>
-              <h1>Signup Page</h1>
+              <h2 className="signup-title">Signup Page</h2>
                 {/*MUST ADD REQUIREMENTS, VALIDATIONS, AND ERRORS TO FIELDS */}
                 <form className="signup-form">
                     <label htmlFor="first-name" className="signup-label">First Name</label>

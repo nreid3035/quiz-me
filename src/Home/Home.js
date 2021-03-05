@@ -25,6 +25,7 @@ class Home extends React.Component {
                 </nav>
                 {/* LINK TO ADD FLASHCARD ROUTE */}
                 <h2>Hello, User</h2>
+                <p>Access Quizzes and Flashcards you have made above, or add more with the buttons below</p>
                 <Link to={'/add-flashcard'}>
                 <button className="action-button">Add Flashcard</button>                
                 </Link>

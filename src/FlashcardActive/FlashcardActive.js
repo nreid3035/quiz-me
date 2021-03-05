@@ -1,5 +1,6 @@
 import React from 'react'
 import QuizMeContext from '../QuizMeContext'
+import './FlashcardActive.css'
 
 // ACTIVE FLASHCARD COMPONENT FOR QUIZ ME APP 
 // DISPLAYS QUESTION
@@ -48,18 +49,23 @@ class FlashcardActive extends React.Component {
         // IF THE STATE OF FLIPPED IS FALSE RENDER WITH THE QUESTION
         if (this.state.flipped === false) {
             return (
-            <div>
+            <>
+            <div className="card" id="front">
                 <h2>{question}</h2>
-                <button onClick={this.handleFlip}>FLIP</button>
             </div>
+                <button onClick={this.handleFlip} className="flip-button">FLIP</button>
+            </>
             )
             // ELSE RENDER USING THE ANSWER
         } else {
             return (
-                <div>
+                <>
+                <div className="card" id="back">
                     <h2>{answer}</h2>
-                    <button onClick={this.handleFlip}>FLIP</button>
                 </div>
+                <button onClick={this.handleFlip} className="flip-button">FLIP</button>
+                </>
+
             )  
         }
         

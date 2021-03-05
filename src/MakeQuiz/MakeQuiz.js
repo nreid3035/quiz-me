@@ -97,7 +97,7 @@ class MakeQuiz extends React.Component {
               {/* ON SUBMIT OF MAKE QUIZ FORM USE HANDLE MAKE QUIZ FUNCTION, PASS IN EVENT */}
             <form onSubmit={(e) => this.handleMakeQuiz(e)} className="make-quiz-form">
                 <label htmlFor="quiz-name" className="quiz-name-label">Quiz Name</label>
-                <input type="text" name="quiz-name" id="quiz-name" className="quiz-name-input"/>
+                <input type="text" name="quiz-name" id="quiz-name" className="quiz-name-input" required/>
                 {flashcardCheckboxes}
                 <button type="submit" className="make-quiz-submit">Submit</button>
             </form>

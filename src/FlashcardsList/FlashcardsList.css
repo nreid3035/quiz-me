@@ -1,13 +1,32 @@
+.flashcard-list-title {
+    font-size: 28px;
+    font-family: 'Libre Baskerville', serif;
+}
+
 .flashcard-list {
     padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .flashcard-li {
     list-style-type: none;
     width: 100%;
-    padding: 5px;
+    height: auto;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-flashcard-button {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #7FC8FF;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
 }
