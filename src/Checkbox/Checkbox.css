@@ -1,0 +1,7 @@
+.checkbox {
+    opacity: 0;
+}
+
+.checked {
+    opacity: 0.5;
+}

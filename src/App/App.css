@@ -1,3 +1,29 @@
+a:hover {
+    opacity: 0.65;
+}
+
+button:hover {
+    opacity: 0.65;
+}
+
+.page-header-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-button {
+    position: absolute;
+    left: 25px;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #7FC8FF;
+}
+
+
 .app-container {
     width: 100%;
     height: auto;
@@ -25,7 +51,11 @@ header {
 }
 
 .home-button {
+    padding: 5px 10px;
+    font-size: 18px;
     font-family: 'Lato', sans-serif;
+    border-radius: 10px;
+    background-color: #7FC8FF;
 }
 
 main {

@@ -10,8 +10,9 @@ class QuizResults extends React.Component {
     render() {
         return (
             <div className="quiz-results-container">
+                <h2 className="results-title">Results</h2>
                 <div className="results">
-                  <h2>{this.props.stats.quiz.name}</h2>
+                  <h3>{this.props.stats.quiz.name}</h3>
                   <p>Final Score: {this.props.stats.score}/{this.props.stats.numOfQuestions}</p>
                 </div>
                 <button onClick={() => this.props.stats.handleRestart()} className="results-button">Retake Quiz</button>

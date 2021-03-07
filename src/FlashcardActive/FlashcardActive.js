@@ -36,35 +36,58 @@ class FlashcardActive extends React.Component {
         
     }
 
+    handleDeleteClick = (flashcardId) => {
+        this.context.handleFlashcardDelete(flashcardId)
+        this.props.history.push('/home')
+    }
+
     render() {
         // FLASHCARDS ARRAY FROM CONTEXT
         const { flashcards=[] } = this.context
 
         // INDEX IS THE CARD ID -1 CARD ID COMES FROM URL ROUTE
-        let index = Number(this.props.match.params.cardId) - 1
-        
-        const question = flashcards[index].question
-        const answer = flashcards[index].answer
+        const cardId = Number(this.props.match.params.cardId)
+        const flashcard = flashcards.filter(card => card.cardId === cardId)
+        console.log(flashcard)
+        const question = flashcard[0].question
+        const answer = flashcard[0].answer
 
         // IF THE STATE OF FLIPPED IS FALSE RENDER WITH THE QUESTION
         if (this.state.flipped === false) {
             return (
-            <>
-            <div className="card" id="front">
+            <div className="flashcard-active-container">
+
+              <div className="flashcard-buttons">
+                <button className="flashcard-button"
+                  onClick={() => this.props.history.goBack()}>Back</button>
+                <button className="flashcard-button"
+                  onClick={() => this.handleDeleteClick(cardId)}>Delete</button>
+              </div>
+            
+        
+              <div className="card" id="front">
                 <h2>{question}</h2>
-            </div>
+              </div>
                 <button onClick={this.handleFlip} className="flip-button">FLIP</button>
-            </>
+            </div>
+
             )
             // ELSE RENDER USING THE ANSWER
         } else {
             return (
-                <>
-                <div className="card" id="back">
+                <div className="flashcard-active-container">
+                  <div className="flashcard-buttons">
+                    <button className="flashcard-button"
+                      onClick={() => this.props.history.goBack()}>Back</button>
+                    <button className="flashcard-button">Edit</button>
+                    <button className="flashcard-button">Delete</button>
+                  </div>
+                  <div className="card" id="back">
                     <h2>{answer}</h2>
+                  </div>
+                  <button onClick={this.handleFlip} className="flip-button">FLIP</button>
                 </div>
-                <button onClick={this.handleFlip} className="flip-button">FLIP</button>
-                </>
+
 
             )  
         }

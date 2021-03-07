@@ -8,11 +8,18 @@ import './Flashcard.css'
 class Flashcard extends React.Component {
     constructor(props) {
         super(props)
-
+        
     }
 
 
     render() {
+        if (this.props.cardQuestion) {
+          return (
+            <div className="flashcard">
+              <h3 className="flash-question">{this.props.cardQuestion}</h3>
+            </div>
+          )
+        }
         return (
             // ROUTES TO FLASHCARDACTIVE, DISPLAYS QUESTION
             <Link to={`/flashcard/${this.props.card.cardId}`} className="flash-link">

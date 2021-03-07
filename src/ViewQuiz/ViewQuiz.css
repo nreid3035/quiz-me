@@ -4,6 +4,24 @@
     padding: 10px;
 }
 
+.view-quiz-buttons {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-quiz-button {
+    width: 45%;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #7FC8FF;
+}
+
 .view-quiz-name {
     font-size: 28px;
     font-family: 'Libre Baskerville', serif;

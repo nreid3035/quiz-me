@@ -1,3 +1,16 @@
+.page-header-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-button {
+    position: absolute;
+    left: 25px
+}
+
 .signup-title {
     font-family: 'Libre Baskerville', serif;
     font-size: 28px;
@@ -19,6 +32,7 @@
 .signup-input {
     padding: 5px 0px;
     margin-bottom: 5px;
+    text-indent: 10px;
 }
 
 .signup-submit {

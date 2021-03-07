@@ -1,14 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import QuizMeContext from '../QuizMeContext'
 import './Signup.css'
 
 // SIGNUP FORM FOR THE QUIZ ME APP CURRENTLY MAKING NO REQUESTS
 
+
+
 class Signup extends React.Component {
+    static contextType = QuizMeContext
+    constructor(props) {
+        super(props)
+    }
+
+
     render() {
+        console.log(this.props)
+        
         return (
             <div>
-              <h2 className="signup-title">Signup Page</h2>
+              <div className="page-header-container">
+                <button className="back-button" 
+                onClick={() => this.props.history.goBack()}>Back</button>  
+                <h2 className="signup-title">Signup Page</h2>
+              </div>
                 {/*MUST ADD REQUIREMENTS, VALIDATIONS, AND ERRORS TO FIELDS */}
                 <form className="signup-form">
                     <label htmlFor="first-name" className="signup-label">First Name</label>

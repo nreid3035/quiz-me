@@ -35,7 +35,7 @@ class App extends React.Component {
       ],
       quizzes: [
         {
-          quizId: "1",
+          quizId: 1,
           name: 'First Quiz',
           flashcardIds: [1, 2]
         }
@@ -60,6 +60,23 @@ class App extends React.Component {
       ]
     })
   }
+
+  handleFlashcardDelete = (flashcardId) => {
+    console.log(flashcardId)
+    const validCards = this.state.flashcards.filter(card => card.cardId !== flashcardId)
+    this.setState({
+      flashcards: validCards
+    })
+  }
+
+  handleQuizDelete = (quizId) => {
+    const validQuizzes = this.state.quizzes.filter(quiz => quiz.quizId !== quizId)
+    this.setState({
+      quizzes: validQuizzes
+    })
+  } 
+
+  
 
   renderMainRoutes = () => {
       return <>
@@ -120,7 +137,9 @@ class App extends React.Component {
       flashcards: this.state.flashcards,
       quizzes: this.state.quizzes,
       handleAddFlashcard: this.handleAddFlashcard,
-      handleAddQuiz: this.handleAddQuiz
+      handleAddQuiz: this.handleAddQuiz,
+      handleFlashcardDelete: this.handleFlashcardDelete,
+      handleQuizDelete: this.handleQuizDelete
     }
     return (
       <QuizMeContext.Provider value={value}>

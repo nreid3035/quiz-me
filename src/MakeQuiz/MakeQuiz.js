@@ -1,6 +1,7 @@
 import React from 'react'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
+import Checkbox from '../Checkbox/Checkbox'
 import './MakeQuiz.css'
 
 // MAKE QUIZ COMPONENT OF QUIZ ME APP CURRENTLY MAKING NO REQUESTS
@@ -41,13 +42,13 @@ class MakeQuiz extends React.Component {
     // HANDLES THE CHANGING OF A CHECKBOX, ADDS OR REMOVES THE ID OF THE FLASHCARD TO THE STATE
     handleCheckboxChange = (e) => {
         // E IS THE CLICKING OF THE BOX, TARGET IS THE ASSOCIATED FLASHCARD
-
+        console.log(e)
         // IF CHECKBOX IS CHECKED ADD ID TO STATE
         if (e.target.checked === true) {
             this.setState({
                 flashcardsForQuizId: [
                     ...this.state.flashcardsForQuizId,
-                    Number(e.target.id)
+                    Number(e.target.value)
                 ]
             })
             // ELSE REMOVE ID FROM THE STATE
@@ -72,8 +73,18 @@ class MakeQuiz extends React.Component {
      
 
     render() {
+        console.log(this.state)
         // FLASHCARDS ARRAY FROM CONTEXT
         const { flashcards=[] } = this.context
+
+        const checkboxes = flashcards.map((card, i) => {
+            return (
+                <Checkbox key={i}
+                          cardId={card.cardId} 
+                          cardQuestion={card.question}
+                          handleCheckboxChange={this.handleCheckboxChange} />
+            )
+        })
 
         // ARRAY OF CHECKBOX ELEMENTS MAPPED FROM FLASHCARDS ARRAY
         const flashcardCheckboxes = flashcards.map((card, i) => {
@@ -93,12 +104,17 @@ class MakeQuiz extends React.Component {
         })
         return (
             <div className="make-quiz-container">
-              <h1>Make Quiz</h1>
+                <div className="page-header-container">
+                    <button className="back-button"
+                    onClick={() => this.props.history.goBack()}>Back</button>
+                    <h2 className="make-quiz-title">Make Quiz</h2>
+                </div>
+              <p>Please select flashcards you would like to add to your quiz below</p>
               {/* ON SUBMIT OF MAKE QUIZ FORM USE HANDLE MAKE QUIZ FUNCTION, PASS IN EVENT */}
             <form onSubmit={(e) => this.handleMakeQuiz(e)} className="make-quiz-form">
                 <label htmlFor="quiz-name" className="quiz-name-label">Quiz Name</label>
                 <input type="text" name="quiz-name" id="quiz-name" className="quiz-name-input" required/>
-                {flashcardCheckboxes}
+                {checkboxes}
                 <button type="submit" className="make-quiz-submit">Submit</button>
             </form>
             </div>

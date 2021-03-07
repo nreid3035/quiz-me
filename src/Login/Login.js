@@ -8,7 +8,11 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-                <h2 className="login-title">Login Page</h2>
+                <div className="page-header-container">
+                  <button className="back-button"
+                  onClick={() => this.props.history.goBack()}>Back</button>
+                  <h2 className="login-title">Login Page</h2>
+                </div>
                 {/* MUST ADD REQUIREMENTS, VALIDATIONS, ERRORS TO FORM*/}
                 <form className="login-form">
                     <label htmlFor="username" className="login-label">Username</label>

@@ -1,7 +1,8 @@
 .quiz-active-card {
     width: 100%; 
     height: 150px;
-    border: 1px solid black;
+    border: 2px solid black;
+    background-color: #A8A8A8;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -17,6 +18,8 @@
     background-color: #7FC8FF;
     border-radius: 10px;
     margin-bottom: 30px;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
 .response-button-container {
@@ -32,4 +35,14 @@
     width: 33%;
     padding: 10px;
     border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+#correct {
+    background-color: #31FF1E;
+}
+
+#wrong {
+    background-color: #FF2B2B;
 }

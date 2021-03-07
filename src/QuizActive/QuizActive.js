@@ -77,7 +77,7 @@ class QuizActive extends React.Component {
                 return (
                     <>
                     <div className="quiz-active-card">
-                        <h2>{flashcard.question}</h2>
+                        <h2>{flashcard.question}?</h2>
                     </div>
                         <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
                     </>
@@ -90,8 +90,8 @@ class QuizActive extends React.Component {
                     </div>
                         <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
                         <div className="response-button-container">
-                            <button onClick={() => this.handleCorrect()} className="response-button">Correct</button>
-                            <button onClick={() => this.handleWrong()} className="response-button">Wrong</button>
+                            <button onClick={() => this.handleCorrect()} className="response-button" id="correct">Correct</button>
+                            <button onClick={() => this.handleWrong()} className="response-button" id="wrong">Wrong</button>
                         </div>
 
                     </>

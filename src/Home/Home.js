@@ -8,23 +8,24 @@ class Home extends React.Component {
     render() {
         return (
             <div className="home-container">
+                <h2>Hello, User</h2>
                 {/*NAVIGATION*/}
                 <nav className="home-nav">
                     <ul className="nav-list">
-                        <li className="nav-li">
                           <Link to={'/quizzes-list'} className="nav-link">
-                            Quizzes
+                            <li className="nav-li">
+                              Quizzes
+                            </li>
                           </Link>
-                        </li>
-                        <li className="nav-li">
+                        
                           <Link to={'/flashcards-list'} className="nav-link">
-                            Flashcards                        
+                            <li className="nav-li">
+                              Flashcards                        
+                            </li>
                           </Link>
-                        </li>
                     </ul>
                 </nav>
                 {/* LINK TO ADD FLASHCARD ROUTE */}
-                <h2>Hello, User</h2>
                 <p>Access Quizzes and Flashcards you have made above, or add more with the buttons below</p>
                 <Link to={'/add-flashcard'}>
                 <button className="action-button">Add Flashcard</button>                

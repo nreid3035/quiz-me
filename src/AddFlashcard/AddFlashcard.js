@@ -30,7 +30,11 @@ class AddFlashcard extends React.Component {
     render() {
         return (
             <div className="add-flashcard-container">
-                <h2 className="add-flashcard-title">Add Flashcard</h2>
+                <div className="page-header-container">
+                    <button className="back-button"
+                    onClick={() => this.props.history.goBack()}>Back</button>
+                    <h2 className="add-flashcard-title">Add Flashcard</h2>
+                </div>
                 {/* ADD FLASHCARD FORM */}
                 <form onSubmit={(e) => this.handleSubmit(e)} className="add-flashcard-form">
                     <label htmlFor="question" className="add-flash-label">Question</label>

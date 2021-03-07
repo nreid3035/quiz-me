@@ -6,15 +6,23 @@
     justify-content: space-around;
 }
 
+.make-quiz-title {
+    font-size: 28px;
+    font-family: 'Libre Baskerville', serif;
+}
+
 .make-quiz-form {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    
 }
 
 .quiz-name-label {
     text-align: left;
     padding: 5px;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
 }
 
 .quiz-name-input {
@@ -32,3 +40,14 @@
     padding: 10px;
 }
 
+.make-quiz-submit {
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #7FC8FF;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+}

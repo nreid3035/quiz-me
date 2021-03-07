@@ -11,6 +11,11 @@ class ViewQuiz extends React.Component {
         super(props)
     }
 
+    handleDeleteClick = (quizId) => {
+        this.context.handleQuizDelete(quizId)
+        this.props.history.push('/home')
+    }
+
     render() {
         console.log(this.props)
         const quizId = Number(this.props.match.params.quizId)
@@ -29,6 +34,12 @@ class ViewQuiz extends React.Component {
         return (
             <div className="view-quiz-container">
                 <h2 className="view-quiz-name">{quiz.name}</h2>
+                <div className="view-quiz-buttons">
+                    <button className="view-quiz-button"
+                      onClick={() => this.props.history.goBack()}>Back</button>
+                    <button className="view-quiz-button"
+                      onClick={() => this.handleDeleteClick(quizId)}>Delete</button>
+                </div>
                 <ul className="view-quiz-flash-list">
                     {flashcardElements}
                 </ul>

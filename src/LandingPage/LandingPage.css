@@ -10,11 +10,13 @@
     width: 100%;
     padding: 10px;
     margin-top: 15px;
+    align-self: center;
 }
 
 .hero-img {
     width: 100%;
     height: auto;
+    border: 2px solid black;
 }
 
 .button-link {
@@ -50,3 +52,4 @@
     font-size: 20px;
     font-family: 'Lato', sans-serif;
 }
+

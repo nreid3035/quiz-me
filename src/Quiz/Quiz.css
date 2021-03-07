@@ -1,7 +1,8 @@
 .quiz-container {
     width: 100%;
     height: 150px;
-    border: 1px solid black;
+    border: 2px solid black;
+    background-color: #A8A8A8;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -33,4 +34,6 @@
     border-radius: 5px;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
+    background-color: #7FC8FF;
+
 }

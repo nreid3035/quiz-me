@@ -5,17 +5,32 @@
     flex-direction: column;
 }
 
+.results-title {
+    font-size: 28px;
+    font-family: 'Libre Baskerville', serif;
+}
+
 .results {
     width: 100%;
     height: 150px;
-    border: 1px solid black;
+    border: 2px solid black;
+    background-color: #A8A8A8;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 30%;
+    margin-top: 5px;
     margin-bottom: 30px;
+    font-family: 'Lato', sans-serif;
+}
+
+.results h3 {
+    font-size: 24px;
+}
+
+.results p {
+    font-size: 18px;
 }
 
 .quiz-results-button-container {
@@ -29,4 +44,6 @@
     margin-bottom: 25px;
     background-color: #7FC8FF;
     border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
 }

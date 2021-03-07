@@ -16,7 +16,11 @@ class QuizStart extends React.Component {
         const quiz = quizzes[quizId - 1]
         return (
             <div className="quiz-start-container">
-                <h2 className="quiz-start-title">Quiz Start</h2>
+                <div className="page-header-container">
+                    <button className="back-button"
+                    onClick={() => this.props.history.goBack()}>Back</button>
+                    <h2 className="quiz-start-title">Quiz Start</h2>
+                </div>
                 <div className="quiz-card">
                   <h3>{quiz.name}</h3>
                   <p>Number of Questions: {quiz.flashcardIds.length}</p>

@@ -4,5 +4,8 @@ export default React.createContext({
     flashcards: [],
     quizzes: [],
     handleAddFlashcard: () => {},
-    handleAddQuiz: () => {}
+    handleAddQuiz: () => {},
+    handleBack: () => {},
+    handleFlashcardDelete: () => {},
+    handleQuizDelete: () => {}
 })
