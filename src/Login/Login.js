@@ -7,7 +7,7 @@ import './Login.css'
 class Login extends React.Component {
     render() {
         return (
-            <div>
+            <div className="login-container">
                 <div className="page-header-container">
                   <button className="back-button"
                   onClick={() => this.props.history.goBack()}>Back</button>

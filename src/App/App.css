@@ -79,3 +79,64 @@ footer {
     color: white;
     font-family: 'Lato', sans-serif;
 }
+
+
+
+@media (min-width: 600px) and (max-width: 756px) {
+    main {
+        margin: 0px 125px;
+    }
+}
+
+@media (min-width: 756px) and (max-width: 900px) {
+    main {
+        margin: 0px 125px;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+    .hero-img {
+        width: 80%;
+    }
+    .landing-intro {
+        width: 90%;
+        align-self: center;
+    }
+    .landing-button {
+        width: 90%;
+    }
+
+}
+
+@media (min-width: 900px) and (max-width: 1100px) {
+    main {
+        margin: 0px 150px;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+    .hero-img {
+        width: 65%;
+    }
+    .landing-intro {
+        width: 70%;
+    }
+    .landing-button {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1100px) {
+    main {
+        margin: 0px 200px;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+    .hero-img {
+        width: 40%;
+    }
+    .landing-intro {
+        width: 50%;
+    }
+    .landing-button {
+        width: 50%;
+    }
+}

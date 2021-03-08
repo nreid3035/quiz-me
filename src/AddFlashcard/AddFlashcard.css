@@ -40,3 +40,9 @@
     font-size: 20px;
     font-family: 'Lato', sans-serif;
 }
+
+@media (min-width: 756px) {
+    .add-flashcard-form {
+        width: 70%
+    }
+}

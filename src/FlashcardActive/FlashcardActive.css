@@ -10,7 +10,7 @@
 .flashcard-buttons {
     width: 100%;
     height: auto;
-    margin-top: 25%;
+    margin-top: 75px;
     margin-bottom: 25px;
 }
 
@@ -41,4 +41,16 @@
     border-radius: 10px;
     font-size: 20px;
     font-family: 'Lato', sans-serif;
+}
+
+@media (min-width: 756px) {
+    .flashcard-button {
+        width: 30%;
+    }
+    .card {
+        width: 70%;
+    }
+    .flip-button {
+        width: 70%;
+    }
 }

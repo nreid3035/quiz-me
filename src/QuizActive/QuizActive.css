@@ -1,3 +1,10 @@
+.quiz-active-card-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 .quiz-active-card {
     width: 100%; 
     height: 150px;
@@ -7,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30%;
+    margin-top: 75px;
     margin-bottom: 30px;
 }
 
@@ -45,4 +52,20 @@
 
 #wrong {
     background-color: #FF2B2B;
+}
+
+@media (min-width: 756px) {
+    .quiz-active-card {
+        width: 70%;
+        align-self: center;
+    }
+    .quiz-active-flip {
+        width: 70%;
+        align-self: center;
+    }
+    .quiz-active-results-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }

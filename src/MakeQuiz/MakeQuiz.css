@@ -51,3 +51,9 @@
     font-size: 20px;
     font-family: 'Lato', sans-serif;
 }
+
+@media (min-width: 756px) {
+    .make-quiz-form {
+        width: 70%;
+    }
+}

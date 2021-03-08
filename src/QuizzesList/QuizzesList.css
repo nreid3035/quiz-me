@@ -1,3 +1,10 @@
+.quizzes-list-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 .quizzes-list-title {
     font-size: 28px;
     font-family: 'Libre Baskerville', serif;
@@ -28,4 +35,15 @@
     font-size: 20px;
     font-family: 'Lato', sans-serif;
 }
+
+@media (min-width: 756px) {
+    .quiz-list {
+        width: 70%;
+        align-self: center;
+    }
+    .make-button {
+        width: 70%;
+    }
+}
+
 

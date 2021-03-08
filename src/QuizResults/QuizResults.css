@@ -47,3 +47,9 @@
     font-size: 20px;
     font-family: 'Lato', sans-serif;
 }
+
+@media (min-width: 756px) {
+    .quiz-results-container {
+        width: 70%;
+    }
+}

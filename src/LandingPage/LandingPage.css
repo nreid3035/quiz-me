@@ -29,6 +29,7 @@
 }
 
 .landing-intro {
+    align-self: center;
     font-size: 18px;
     font-family: 'Lato', sans-serif;
 }

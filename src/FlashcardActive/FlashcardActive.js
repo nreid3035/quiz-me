@@ -79,8 +79,8 @@ class FlashcardActive extends React.Component {
                   <div className="flashcard-buttons">
                     <button className="flashcard-button"
                       onClick={() => this.props.history.goBack()}>Back</button>
-                    <button className="flashcard-button">Edit</button>
-                    <button className="flashcard-button">Delete</button>
+                    <button className="flashcard-button"
+                      onClick={() => this.handleDeleteClick(cardId)}>Delete</button>
                   </div>
                   <div className="card" id="back">
                     <h2>{answer}</h2>

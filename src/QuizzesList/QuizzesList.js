@@ -21,15 +21,15 @@ class QuizzesList extends React.Component {
                    </li>
         })
         return (
-            <>
-            <h2 className="quizzes-list-title">Quizzes</h2>
-            <ul className="quiz-list">
-              {quizElements}
-            </ul>
-            <Link to="/make-quiz">
-              <button className="make-button">Make Quiz</button>            
-            </Link>
-            </>
+            <div className="quizzes-list-container">
+              <h2 className="quizzes-list-title">Quizzes</h2>
+              <ul className="quiz-list">
+                {quizElements}
+              </ul>
+              <Link to="/make-quiz">
+                <button className="make-button">Make Quiz</button>            
+              </Link>
+            </div>
         )
     }
 }

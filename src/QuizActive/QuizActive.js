@@ -62,7 +62,7 @@ class QuizActive extends React.Component {
         
         if (!flashcardId) {
             return (
-                <div>
+                <div className="quiz-active-results-container">
                     <QuizResults stats={{
                         quiz: quiz,
                         score: this.state.counter,
@@ -75,26 +75,25 @@ class QuizActive extends React.Component {
 
             if (this.state.flipped === false) {
                 return (
-                    <>
-                    <div className="quiz-active-card">
+                    <div className="quiz-active-card-container">
+                      <div className="quiz-active-card">
                         <h2>{flashcard.question}?</h2>
-                    </div>
+                      </div>
                         <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
-                    </>
+                    </div>
                 )
             } else {
                 return (
-                    <>
-                    <div className="quiz-active-card">
-                        <h2>{flashcard.answer}</h2>
+                    <div className="quiz-active-card-container">
+                      <div className="quiz-active-card">
+                          <h2>{flashcard.answer}</h2>
+                      </div>
+                          <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
+                          <div className="response-button-container">
+                              <button onClick={() => this.handleCorrect()} className="response-button" id="correct">Correct</button>
+                              <button onClick={() => this.handleWrong()} className="response-button" id="wrong">Wrong</button>
+                          </div>
                     </div>
-                        <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
-                        <div className="response-button-container">
-                            <button onClick={() => this.handleCorrect()} className="response-button" id="correct">Correct</button>
-                            <button onClick={() => this.handleWrong()} className="response-button" id="wrong">Wrong</button>
-                        </div>
-
-                    </>
                 )
             }
         }

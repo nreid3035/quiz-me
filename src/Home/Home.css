@@ -56,3 +56,18 @@
     font-size: 20px;
     font-family: 'Lato', sans-serif;
 }
+
+@media (min-width: 756px) {
+    .home-nav {
+        width: 70%;
+        align-self: center;
+    }
+    .home-container p {
+        width: 70%;
+        align-self: center;
+    }
+    .action-button {
+        width: 70%;
+
+    }
+}

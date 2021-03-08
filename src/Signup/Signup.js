@@ -18,7 +18,7 @@ class Signup extends React.Component {
         console.log(this.props)
         
         return (
-            <div>
+            <div className="signup-container">
               <div className="page-header-container">
                 <button className="back-button" 
                 onClick={() => this.props.history.goBack()}>Back</button>  
