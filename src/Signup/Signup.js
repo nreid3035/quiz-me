@@ -9,10 +9,6 @@ import './Signup.css'
 
 class Signup extends React.Component {
     static contextType = QuizMeContext
-    constructor(props) {
-        super(props)
-    }
-
 
     render() {
         console.log(this.props)

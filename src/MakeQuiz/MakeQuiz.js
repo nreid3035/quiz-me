@@ -77,6 +77,7 @@ class MakeQuiz extends React.Component {
         // FLASHCARDS ARRAY FROM CONTEXT
         const { flashcards=[] } = this.context
 
+        // ARRAY OF CHECKBOX ELEMENTS MAPPED FROM FLASHCARDS ARRAY
         const checkboxes = flashcards.map((card, i) => {
             return (
                 <Checkbox key={i}
@@ -86,22 +87,7 @@ class MakeQuiz extends React.Component {
             )
         })
 
-        // ARRAY OF CHECKBOX ELEMENTS MAPPED FROM FLASHCARDS ARRAY
-        const flashcardCheckboxes = flashcards.map((card, i) => {
-            return (
-                <div className="flashcard-checkbox-container">
-                    <input type="checkbox" className="flashcard-checkbox-input" name="checkbox" id={i + 1} value={card.cardId}
-                           /* ON CHANGE USE HANDLE CHECKBOX CHANGE FUNCTION, PASS IN EVENT */ 
-                           onChange={(e) => this.handleCheckboxChange(e)}/>
-                    <label htmlFor="checkbox" className="flashcard-checkbox-label">
-                        <Flashcard card={card} key={i} />
-                    </label>
-                    
-                </div>
-
-        )
-            
-        })
+        
         return (
             <div className="make-quiz-container">
                 <div className="page-header-container">

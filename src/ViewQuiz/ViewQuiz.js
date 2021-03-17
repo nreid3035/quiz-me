@@ -6,11 +6,6 @@ import './ViewQuiz.css'
 
 class ViewQuiz extends React.Component {
     static contextType = QuizMeContext
-
-    constructor(props) {
-        super(props)
-    }
-
     handleDeleteClick = (quizId) => {
         this.context.handleQuizDelete(quizId)
         this.props.history.push('/home')

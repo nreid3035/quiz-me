@@ -5,11 +5,6 @@ import './QuizStart.css'
 
 class QuizStart extends React.Component {
     static contextType = QuizMeContext
-    
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         const { quizzes=[] } = this.context
         const quizId = Number(this.props.match.params.quizId)

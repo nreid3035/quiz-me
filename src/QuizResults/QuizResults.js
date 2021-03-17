@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom'
 import './QuizResults.css'
 
 class QuizResults extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div className="quiz-results-container">

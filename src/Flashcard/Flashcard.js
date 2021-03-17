@@ -6,12 +6,6 @@ import './Flashcard.css'
 // RENDERED BY FLASHCARDLIST OR VIEWQUIZ
 
 class Flashcard extends React.Component {
-    constructor(props) {
-        super(props)
-        
-    }
-
-
     render() {
         if (this.props.cardQuestion) {
           return (
