@@ -1,5 +1,4 @@
 import React from 'react'
-import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
 import Checkbox from '../Checkbox/Checkbox'
 import './MakeQuiz.css'
