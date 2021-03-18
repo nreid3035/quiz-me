@@ -19,28 +19,22 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      flashcards: [
-        {
-          cardId: 1,
-          question: "2 + 2",
-          answer: "4",
-          isChecked: false
-        },
-        {
-          cardId: 2,
-          question: "Who was the first president of the United States",
-          answer: "George Washington",
-          isChecked: false
-        }
-      ],
-      quizzes: [
-        {
-          quizId: 1,
-          name: 'First Quiz',
-          flashcardIds: [1, 2]
-        }
-      ]
+      userInfo: {},
+      flashcards: [],
+      quizzes: []
     }
+  }
+
+  setUserInfo = (userObj) => {
+    this.setState({
+      userInfo: userObj
+    })
+  }
+
+  setFlashcards = (flashcards) => {
+    this.setState({
+      flashcards: flashcards
+    })
   }
 
   handleAddFlashcard = (flashcard) => {
@@ -133,13 +127,15 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     const value = {
       flashcards: this.state.flashcards,
       quizzes: this.state.quizzes,
       handleAddFlashcard: this.handleAddFlashcard,
       handleAddQuiz: this.handleAddQuiz,
       handleFlashcardDelete: this.handleFlashcardDelete,
-      handleQuizDelete: this.handleQuizDelete
+      handleQuizDelete: this.handleQuizDelete,
+      setUserInfo: this.setUserInfo
     }
     return (
       <QuizMeContext.Provider value={value}>

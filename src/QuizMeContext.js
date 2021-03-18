@@ -7,5 +7,6 @@ export default React.createContext({
     handleAddQuiz: () => {},
     handleBack: () => {},
     handleFlashcardDelete: () => {},
-    handleQuizDelete: () => {}
+    handleQuizDelete: () => {},
+    setUserInfo: () => {}
 })

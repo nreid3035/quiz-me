@@ -5,6 +5,8 @@ import './Home.css'
 // HOME PAGE FOR THE QUIZ ME APP
 
 class Home extends React.Component {
+
+    
     render() {
         return (
             <div className="home-container">

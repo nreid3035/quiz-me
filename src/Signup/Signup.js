@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './Signup.css'
 
@@ -9,6 +10,31 @@ import './Signup.css'
 
 class Signup extends React.Component {
     static contextType = QuizMeContext
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const newUser = {
+            first_name: e.target['first-name'].value,
+            last_name: e.target['last-name'].value,
+            username: e.target['username'].value,
+            email: e.target['email'].value,
+            user_password: e.target['password'].value
+        }
+
+        fetch(`${config.API_BASE_URL}/users`, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newUser)
+        })
+        .then(response => response.json())
+        .then(responseJson => {
+            return responseJson
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
 
     render() {
         console.log(this.props)
@@ -21,7 +47,7 @@ class Signup extends React.Component {
                 <h2 className="signup-title">Signup Page</h2>
               </div>
                 {/*MUST ADD REQUIREMENTS, VALIDATIONS, AND ERRORS TO FIELDS */}
-                <form className="signup-form">
+                <form className="signup-form" onSubmit={(e) => this.handleSubmit(e)}>
                     <label htmlFor="first-name" className="signup-label">First Name</label>
                     <input type="text" name="first-name" id="first-name" className="signup-input"/>
                     <label htmlFor="last-name" className="signup-label">Last Name</label>
@@ -34,9 +60,7 @@ class Signup extends React.Component {
                     <input type="text" name="password" id="password" className="signup-input"/>
                     <label htmlFor="confirm-password" className="signup-label">Confirm Password</label>
                     <input type="text" name="confirm-password" id="confirm-password" className="signup-input"/>
-                    <Link to={'/home'}>
                     <button type="submit" className="signup-submit">Submit</button>
-                    </Link>
                 </form>
             </div>
         )
