@@ -3,13 +3,15 @@ import Flashcard from '../Flashcard/Flashcard'
 import './Checkbox.css'
 
 class Checkbox extends React.Component {
+    // CONSTRUCTOR WITH STATE TO TELL IF CHECKBOX IS CHECKED
     constructor(props) {
         super(props)
         this.state = {
             checked: false
         }
     }
-
+   
+    // CHECKBOX CHANGE ON CLICK EVENT HANDLER
     handleCheckedChange = () => {
         this.setState({
             checked: !this.state.checked
@@ -18,6 +20,7 @@ class Checkbox extends React.Component {
 
 
     render() {
+        // IF CHECKED RETURN WITH CLASSNAME 'CHECKED' ELSE RETURN WITHOUT
         console.log(this.state)
         if (this.state.checked === true) {
             return (

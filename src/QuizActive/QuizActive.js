@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import QuizResults from '../QuizResults/QuizResults'
 import './QuizActive.css'
@@ -8,10 +9,46 @@ class QuizActive extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            quiz: {
+                quizName: '',
+                questions: [],
+                answers: []
+            },
             counter: 0,
             questionIdx: 0,
             flipped: false
         }
+    }
+
+    componentDidMount() {
+        fetch(`${config.API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
+            headers: {
+                'session_token': localStorage.getItem('session_token')
+            }
+        })
+        .then(response => response.json())
+        .then(responseJson => {
+            this.handleQuizFetch(responseJson)
+            return console.log(responseJson)
+        })
+    }
+
+    handleQuizFetch = (quiz) => {
+        const questions = []
+        const answers = []
+        for (let i = 0; i < quiz.length; i++) {
+            questions.push(quiz[i].question)
+            answers.push(quiz[i].answer)
+        
+        }
+            
+        this.setState({
+            quiz: {
+                quizName: quiz[0].quiz_name,
+                questions: questions,
+                answers: answers,
+            }
+        })
     }
 
     handleFlip = () => {
@@ -51,22 +88,18 @@ class QuizActive extends React.Component {
     }
 
     render() {
-        const { quizzes=[] } = this.context
-        const { flashcards=[] } = this.context
+        console.log(this.state)
         const quizId = Number(this.props.match.params.quizId)
-        const quiz = quizzes[quizId - 1]
-        const flashcardId = quiz.flashcardIds[this.state.questionIdx]
-        const flashcard = flashcards[flashcardId - 1]
+        const quiz = this.state.quiz
         console.log(quiz)
-        console.log(flashcard, flashcardId)
         
-        if (!flashcardId) {
+        if (!quiz.questions[this.state.questionIdx]) {
             return (
                 <div className="quiz-active-results-container">
                     <QuizResults stats={{
                         quiz: quiz,
                         score: this.state.counter,
-                        numOfQuestions: quiz.flashcardIds.length,
+                        numOfQuestions: quiz.questions.length,
                         handleRestart: this.handleRestart
                     }} />
                 </div>
@@ -77,7 +110,7 @@ class QuizActive extends React.Component {
                 return (
                     <div className="quiz-active-card-container">
                       <div className="quiz-active-card">
-                        <h2>{flashcard.question}?</h2>
+                        <h2>{quiz.questions[this.state.questionIdx]}?</h2>
                       </div>
                         <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
                     </div>
@@ -86,7 +119,7 @@ class QuizActive extends React.Component {
                 return (
                     <div className="quiz-active-card-container">
                       <div className="quiz-active-card">
-                          <h2>{flashcard.answer}</h2>
+                          <h2>{quiz.answers[this.state.questionIdx]}</h2>
                       </div>
                           <button onClick={() => this.handleFlip()} className="quiz-active-flip">FLIP</button>
                           <div className="response-button-container">

@@ -2,6 +2,7 @@ import React from 'react'
 import QuizMeContext from '../QuizMeContext'
 import Checkbox from '../Checkbox/Checkbox'
 import './MakeQuiz.css'
+import config from '../config'
 
 // MAKE QUIZ COMPONENT OF QUIZ ME APP CURRENTLY MAKING NO REQUESTS
 
@@ -11,10 +12,32 @@ class MakeQuiz extends React.Component {
 
     constructor(props) {
         super(props)
-        // STATE HOLDS CHECKED FLASHCARD IDS
+        // STATE HOLDS FLASHCARDS AND CHECKED FLASHCARD IDS
         this.state = {
+            flashcards: [],
             flashcardsForQuizId: []
         }
+    }
+
+    // HANDLE ADDING FLASHCARDS FROM FETCH TO STATE
+    handleFlashFetch = (flashcards) => {
+        this.setState({
+            flashcards: flashcards
+        })
+    }
+
+    // MOUNT GET REQUEST FOR ALL FLASHCARDS TO BE SELECTED
+    componentDidMount() {
+        fetch(`${config.API_BASE_URL}/flashcards`, {
+            headers: {
+                'session_token': localStorage.getItem('session_token')
+            }
+        })
+        .then(response => response.json())
+        .then(responseJson => {
+            // PASS FETCH RESPONSE TO BE ADDED TO STATE
+            this.handleFlashFetch(responseJson)
+        })
     }
 
     // HANDLES SUBMIT OF THE MAKE QUIZ FORM
@@ -22,17 +45,28 @@ class MakeQuiz extends React.Component {
         // PREVENT DEFAULT ACTION (REFRESH)
         e.preventDefault()
 
-        // MAKE NEW QUIZ OBJECT TO PUSH TO STATE
+        // MAKE NEW QUIZ OBJECT TO BE POSTED
         const newQuiz = {
-            quizId: this.context.quizzes.length + 1,
-            name: e.target['quiz-name'].value,
+            quiz_name: e.target['quiz-name'].value,
             flashcardIds: [
                 ...this.state.flashcardsForQuizId
             ]
         }
 
-        // USE HANDLE ADD QUIZ TO PUSH NEW QUIZ TO STATE
-        this.context.handleAddQuiz(newQuiz)
+        // POST FETCH REQUEST TO API/QUIZZES
+        fetch(`${config.API_BASE_URL}/quizzes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'session_token': localStorage.getItem('session_token')
+            },
+            body: JSON.stringify(newQuiz)
+        })
+        .then(response => response.json())
+        .then(responseJson => {
+            this.context.setQuizFromPost(responseJson)
+            console.log(responseJson)
+        })
 
         // REROUTE TO QUIZZES LIST
         this.props.history.push('/quizzes-list')
@@ -41,7 +75,7 @@ class MakeQuiz extends React.Component {
     // HANDLES THE CHANGING OF A CHECKBOX, ADDS OR REMOVES THE ID OF THE FLASHCARD TO THE STATE
     handleCheckboxChange = (e) => {
         // E IS THE CLICKING OF THE BOX, TARGET IS THE ASSOCIATED FLASHCARD
-        console.log(e)
+        console.log(e.target.value)
         // IF CHECKBOX IS CHECKED ADD ID TO STATE
         if (e.target.checked === true) {
             this.setState({
@@ -56,7 +90,7 @@ class MakeQuiz extends React.Component {
             if (this.state.flashcardsForQuizId.length > 1) {
                 this.setState({
                     flashcardsForQuizId: [
-                        ...this.state.flashcardsForQuizId.splice(e.target.id - 1, 1)
+                        ...this.state.flashcardsForQuizId.splice(this.state.flashcardsForQuizId.indexOf(e.target.id), 1)
                     ]
                 })
                 // ELSE RETURN EMPTY ARRAY
@@ -73,14 +107,12 @@ class MakeQuiz extends React.Component {
 
     render() {
         console.log(this.state)
-        // FLASHCARDS ARRAY FROM CONTEXT
-        const { flashcards=[] } = this.context
 
         // ARRAY OF CHECKBOX ELEMENTS MAPPED FROM FLASHCARDS ARRAY
-        const checkboxes = flashcards.map((card, i) => {
+        const checkboxes = this.state.flashcards.map((card, i) => {
             return (
                 <Checkbox key={i}
-                          cardId={card.cardId} 
+                          cardId={card.flashcard_id} 
                           cardQuestion={card.question}
                           handleCheckboxChange={this.handleCheckboxChange} />
             )

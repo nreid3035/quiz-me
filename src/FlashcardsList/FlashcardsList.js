@@ -1,5 +1,6 @@
 import React from 'react' 
 import { Link } from 'react-router-dom'
+import config from '../config'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
 import './FlashcardsList.css'
@@ -10,12 +11,33 @@ class FlashcardsList extends React.Component {
     // DECLARE CONTEXT TYPE
     static contextType = QuizMeContext
 
-    render() {
-        // FLASHCARDS ARRAY FROM CONTEXT
-        const { flashcards=[] } = this.context
+    // STATE WILL HOLD FLAHCARDS AFTER THE FETCH REQUEST
+    
+
+    // HANDLER TO SET THE STATE OF THE FLASHCARDS
+    
+ 
+    
+    // MOUNTED GET REQUEST TO API/FLASHCARDS
+    componentDidMount() {
+      fetch(`${config.API_BASE_URL}/flashcards`, {
+        headers: {
+          'session_token': localStorage.getItem('session_token')
+        }
+      })
+      .then(response => response.json())
+      .then(responseJson => {
+        console.log(responseJson)
+        // SET STATE USING FETCH RESPONSE
+        this.context.setFlashcards(responseJson)
+      })
+    }
+
+
+    render() { 
 
         // ARRAY OF LIST ELEMENTS CONTAINING FLASHCARD COMPONENTS
-        const flashcardComps = flashcards.map((card, i) => {
+        const flashcardComps = this.context.flashcards.map((card, i) => {
             return (
                 <li className="flashcard-li">
                   <Flashcard card={card} key={i}/>  

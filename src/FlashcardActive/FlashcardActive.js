@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './FlashcardActive.css'
 
@@ -15,10 +16,34 @@ class FlashcardActive extends React.Component {
         // USE STATE TO TRACK IF CARD IS FLIPPED OR NOT
         // FALSE IS QUESTION SIDE
         this.state = {
-            flipped: false
+            flipped: false,
+            question: '',
+            answer: ''
         }
     }
 
+    // SET STATE TO HOLD THE FLASHCARD QUESTION AND ANSWER
+    handleQAChange = (flashcard) => {
+        this.setState({
+          question: flashcard.question,
+          answer: flashcard.answer
+        })
+    }
+
+    // MOUNT A FETCH REQUEST TO GET THE FLASHCARD BY ID 
+    componentDidMount() {
+      fetch(`${config.API_BASE_URL}/flashcards/${this.props.match.params.cardId}`, {
+        headers: {
+          'session_token': localStorage.getItem('session_token')
+        }
+      })
+      .then(response => response.json())
+      .then(responseJson => {
+        // PASS RESPONSE TO QA HANDLER
+        this.handleQAChange(responseJson)
+        return console.log(responseJson)
+      })
+    }
     // USE ON CLICK OF FLIP BUTTON TO FLIP FROM QUESTION TO ANSWER
     // OR VICE VERSA
     handleFlip = () => {
@@ -36,21 +61,30 @@ class FlashcardActive extends React.Component {
         
     }
 
+    // DELETE FLASHCARD BY ID HANDLER
     handleDeleteClick = (flashcardId) => {
-        this.context.handleFlashcardDelete(flashcardId)
+        // DELETE FETCH REQUEST
+        fetch(`${config.API_BASE_URL}/flashcards/${flashcardId}`, {
+          method: 'DELETE',
+          headers: {
+            'session_token': localStorage.getItem('session_token')
+          }
+        })
+        .then(response => response.json())
+        .then(responseJson => {
+          return console.log(responseJson)
+        })
+        // REROUTE BACK TO THE HOME PAGE ON COMPLETION
         this.props.history.push('/home')
     }
 
     render() {
-        // FLASHCARDS ARRAY FROM CONTEXT
-        const { flashcards=[] } = this.context
-
+        
+        console.log(this.props)
         // INDEX IS THE CARD ID -1 CARD ID COMES FROM URL ROUTE
         const cardId = Number(this.props.match.params.cardId)
-        const flashcard = flashcards.filter(card => card.cardId === cardId)
-        console.log(flashcard)
-        const question = flashcard[0].question
-        const answer = flashcard[0].answer
+        const question = this.state.question
+        const answer = this.state.answer
 
         // IF THE STATE OF FLIPPED IS FALSE RENDER WITH THE QUESTION
         if (this.state.flipped === false) {

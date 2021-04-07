@@ -70,8 +70,37 @@ class App extends React.Component {
     })
   } 
 
-  
+  // SET QUIZZES IN CONTEXT FOR QUIZZESLIST
+  setQuizzes = (quizzes) => {
+    this.setState({
+      quizzes: quizzes
+    })
+  }
 
+  // ADD QUIZ FROM MAKE QUIZ RESPONSE
+  setQuizFromPost = (quiz) => {
+    this.setState({
+      quizzes: [...this.state.quizzes, quiz]
+    })
+  }
+
+  // SET FLASHCARDS IN CONTEXT FROM GET REQUEST
+  setFlashcards = (flashcards) => {
+    this.setState({
+      flashcards: flashcards
+    })
+  }
+
+  // ADD FLASHCARD EVENT HANDLER
+  setFlashFromPost = (flashcard) => {
+    this.setState({
+      flashcards: [...this.state.flashcards, flashcard] 
+    })
+    console.log(flashcard)
+   }
+
+  
+  // MAIN ROUTES OF THE APP
   renderMainRoutes = () => {
       return <>
           <Route 
@@ -128,14 +157,20 @@ class App extends React.Component {
 
   render() {
     console.log(this.state)
+    // VALUES TO BE ADDED TO CONTEXT
     const value = {
+      userInfo: this.state.userInfo,
       flashcards: this.state.flashcards,
       quizzes: this.state.quizzes,
       handleAddFlashcard: this.handleAddFlashcard,
       handleAddQuiz: this.handleAddQuiz,
       handleFlashcardDelete: this.handleFlashcardDelete,
       handleQuizDelete: this.handleQuizDelete,
-      setUserInfo: this.setUserInfo
+      setUserInfo: this.setUserInfo,
+      setFlashFromPost: this.setFlashFromPost,
+      setFlashcards: this.setFlashcards,
+      setQuizzes: this.setQuizzes,
+      setQuizFromPost: this.setQuizFromPost
     }
     return (
       <QuizMeContext.Provider value={value}>

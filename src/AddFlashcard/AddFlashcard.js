@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './AddFlashcard.css'
 
@@ -15,15 +16,29 @@ class AddFlashcard extends React.Component {
         
         // CREATE FLASHCARD OBJECT TO ADD TO STATE
         const newFlashcard = {
-            cardId: this.context.flashcards.length + 1,
             question: e.target['question'].value,
-            answer: e.target['answer'].value
+            answer: e.target['answer'].value,
         }
 
-        // USE HANDLE ADD FLASHCARD FUNCTION FROM CONTEXT
-        this.context.handleAddFlashcard(newFlashcard)
+        // POST FETCH REQUEST TO API/FLASHCARDS ENDPOINT
+        fetch(`${config.API_BASE_URL}/flashcards`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'session_token': localStorage.getItem('session_token')
+
+            },
+            body: JSON.stringify(newFlashcard)
+        })
+        .then(response => response.json())
+        .then(responseJson => {
+            // ADD TO STATE OF FLASHCARDS LIST
+            this.context.setFlashFromPost(responseJson)
+            console.log(responseJson)
+        })
 
         // REROUTE BACK TO FLASHCARDS LIST
+        console.log(this.props)
         this.props.history.push(`/flashcards-list`)
     }
     

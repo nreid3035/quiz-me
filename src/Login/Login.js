@@ -9,26 +9,35 @@ import QuizMeContext from '../QuizMeContext'
 class Login extends React.Component {
     static contextType = QuizMeContext
 
+    // SUBMIT FORM EVENT HANDLER
     handleSubmit = (e) => {
+        // PREVENT DEFAULT REFRESH
         e.preventDefault()
+
+        // DECLARE USER OBJECT TO BE SUBMITTED
         const userRequest = {
             username: e.target['username'].value,
             password: e.target['password'].value
         }
         // GET USER BY USERNAME AND PASSWORD VALUE
-        fetch(`${config.API_BASE_URL}/users/user-validation/${userRequest.username}`)
-            .then(response => {
-                console.log(response)
-                return response.json()
-            })
-            .then(responseJson => {
-                if (userRequest.password !== responseJson.user_password) {
-                    throw new Error
-                } else {
-                    this.context.setUserInfo(responseJson)
-                    this.props.history.push('/home')
-                }
-            })
+        fetch(`${config.API_BASE_URL}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userRequest)
+        })
+        .then(response => {
+            console.log(response)
+            return response.json()
+        })
+        .then(responseJson => {
+            // ADD JWT TOKEN TO LOCAL STORAGE, ROUTE TO HOME
+            localStorage.setItem('session_token', responseJson.token)
+            this.props.history.push('/home')
+            return console.log(responseJson)
+        })
+            
     }
 
     render() {

@@ -1,14 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './QuizStart.css'
 
 class QuizStart extends React.Component {
     static contextType = QuizMeContext
+    constructor(props) {
+        super(props)
+        this.state = {
+            quiz_name: '',
+            numOfQs: 0
+        }
+    }
+
+    setQuizStartState = (quizInfo) => {
+        this.setState({
+            quiz_name: quizInfo[0].quiz_name,
+            numOfQs: quizInfo.length
+        })
+    }
+
+    componentDidMount() {
+        fetch(`${config.API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
+            headers: {
+                'session_token': localStorage.getItem('session_token')
+            }
+        })
+        .then(response => response.json())
+        .then(responseJson => {
+            this.setQuizStartState(responseJson)
+        })
+    }
+
     render() {
-        const { quizzes=[] } = this.context
         const quizId = Number(this.props.match.params.quizId)
-        const quiz = quizzes[quizId - 1]
         return (
             <div className="quiz-start-container">
                 <div className="page-header-container">
@@ -17,11 +43,11 @@ class QuizStart extends React.Component {
                     <h2 className="quiz-start-title">Quiz Start</h2>
                 </div>
                 <div className="quiz-card">
-                  <h3>{quiz.name}</h3>
-                  <p>Number of Questions: {quiz.flashcardIds.length}</p>
+                  <h3>{this.state.quiz_name}</h3>
+                  <p>Number of Questions: {this.state.numOfQs}</p>
                 </div>
 
-                <Link to={`/quiz-active/${quiz.quizId}`}>
+                <Link to={`/quiz-active/${quizId}`}>
                 <button className="start-button">Start</button>                
                 </Link>
             </div>

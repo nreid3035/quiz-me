@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default React.createContext({
+    userInfo: {},
     flashcards: [],
     quizzes: [],
     handleAddFlashcard: () => {},
@@ -8,5 +9,9 @@ export default React.createContext({
     handleBack: () => {},
     handleFlashcardDelete: () => {},
     handleQuizDelete: () => {},
-    setUserInfo: () => {}
+    setUserInfo: () => {},
+    setFlashFromPost: () => {},
+    setFlashcards: () => {},
+    setQuizzes: () => {},
+    setQuizFromPost: () => {}
 })
