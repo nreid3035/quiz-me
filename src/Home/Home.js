@@ -29,12 +29,10 @@ class Home extends React.Component {
       .then(response => response.json())
       .then(responseJson => {
         this.setFirstName(responseJson)
-        console.log(responseJson)
       })
     }
     
     render() {
-        console.log(this.state)
         return (
             <div className="home-container">
                 <h2>Hello, {this.state.firstName}</h2>

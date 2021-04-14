@@ -42,16 +42,13 @@ class Signup extends React.Component {
             },
             body: JSON.stringify(newUser)
         }
-        console.log(newUser)
         // POST REQUEST TO API/SIGNUP
         fetch(`${config.API_BASE_URL}/signup`, requestOptions)
         .then(response => {
-            console.log(response)
             return response.json()
         })
         .then(responseJson => {
             // REROUTE TO LOGIN ON SUCCESS
-            console.log(responseJson)
             this.props.history.push('/login')
             return responseJson
         })
@@ -61,7 +58,6 @@ class Signup extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         
         return (
             <div className="signup-container">

@@ -6,6 +6,8 @@ import './QuizActive.css'
 
 class QuizActive extends React.Component {
     static contextType = QuizMeContext
+    // STATE HOLDS DETAILS OF THE QUIZ AND INFO ABOUT THE QUESTION #, SCORE, AND 
+    // WHETHER OR NOT THE CURRENT CARD IS FLIPPED
     constructor(props) {
         super(props)
         this.state = {
@@ -20,6 +22,7 @@ class QuizActive extends React.Component {
         }
     }
 
+    // MOUNT A COMPONENT TO GET THE QUIZ BY ID
     componentDidMount() {
         fetch(`${config.API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
             headers: {
@@ -28,11 +31,13 @@ class QuizActive extends React.Component {
         })
         .then(response => response.json())
         .then(responseJson => {
+            // PASS FETCH RESPONSE IN TO BE ADDED TO STATE
             this.handleQuizFetch(responseJson)
-            return console.log(responseJson)
+            return responseJson
         })
     }
 
+    // HANDLES ADDING FETCH RESPONSE TO THE STATE
     handleQuizFetch = (quiz) => {
         const questions = []
         const answers = []
@@ -51,6 +56,7 @@ class QuizActive extends React.Component {
         })
     }
 
+    // HANDLES FLIPPING THE CARD FROM Q TO A AND VICE VERSA
     handleFlip = () => {
         if (this.state.flipped === false) {
             this.setState({
@@ -64,6 +70,7 @@ class QuizActive extends React.Component {
         
     }
 
+    // HANDLES A CLICKING OF THE CORRECT BUTTON, ADDS 1 TO QUESTIONIDX AND COUNTER, MAKES FLIPPED FALSE AGAIN
     handleCorrect = () => {
         this.setState({
             questionIdx: this.state.questionIdx + 1,
@@ -72,6 +79,7 @@ class QuizActive extends React.Component {
         })
     }
 
+    // HANDLES A CLICKING OF THE WRONG BUTTON, ADDS 1 TO QUESTIONIDX AND MAKES FLIPPED FALSE AGAIN
     handleWrong = () => {
         this.setState({
             questionIdx: this.state.questionIdx + 1,
@@ -79,6 +87,7 @@ class QuizActive extends React.Component {
         })
     }
 
+    // HANDLES A CLICKING OF THE RESTART BUTTON, BRINGS QUESTIONIDX AND COUNTER TO 0, FLIPPED WITLL BE FALSE
     handleRestart = () => {
         this.setState({
             questionIdx: 0,
@@ -88,11 +97,9 @@ class QuizActive extends React.Component {
     }
 
     render() {
-        console.log(this.state)
-        const quizId = Number(this.props.match.params.quizId)
         const quiz = this.state.quiz
-        console.log(quiz)
-        
+
+        // IF QUESTION IDX DOESNT EXIST RETURN QUIZ RESULTS
         if (!quiz.questions[this.state.questionIdx]) {
             return (
                 <div className="quiz-active-results-container">
@@ -106,6 +113,7 @@ class QuizActive extends React.Component {
             )
         }
 
+            // IF STATE OF CARD IS NOT FLIPPED(FALSE) DISPLAY QUESTION
             if (this.state.flipped === false) {
                 return (
                     <div className="quiz-active-card-container">
@@ -116,6 +124,7 @@ class QuizActive extends React.Component {
                     </div>
                 )
             } else {
+                // ELSE IF CARD IS FLIPPED(TRUE) DISPLAY ANSWER, AND RIGHT/WRONG BUTTONS
                 return (
                     <div className="quiz-active-card-container">
                       <div className="quiz-active-card">

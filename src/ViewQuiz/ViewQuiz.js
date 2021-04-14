@@ -31,7 +31,6 @@ class ViewQuiz extends React.Component {
         })
         .then(response => response.json())
         .then(responseJson => {
-            console.log(responseJson)
             this.setQuizState(responseJson)
             return
         })
@@ -47,7 +46,7 @@ class ViewQuiz extends React.Component {
         })
         .then(response => response.json())
         .then(responseJson => {
-            return console.log(responseJson)
+            return responseJson
         })
         this.props.history.push('/home')
     }
@@ -55,7 +54,6 @@ class ViewQuiz extends React.Component {
     
 
     render() {
-        console.log(this.state)
         const quizId = Number(this.props.match.params.quizId)
         const flashcardElements = this.state.questions.map((card, i) => {
             return <li className="view-quiz-flash-li">

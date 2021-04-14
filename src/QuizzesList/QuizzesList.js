@@ -9,17 +9,7 @@ import config from '../config'
 
 class QuizzesList extends React.Component {
     // DECLARE CONTEXT TYPE
-    static contextType = QuizMeContext
-    // STATE HOLDS QUIZZES FROM THE FETCH RESPOSNE
-    constructor(props) {
-      super(props)
-      this.state = {
-        quizzes: []
-      }
-    }
-
-    // HANDLES ADDING QUIZZES FROM THE FETCH TO THE STATE
-    
+    static contextType = QuizMeContext   
 
     // MOUNT A GET FETCH REQUEST OF ALL QUIZZES
     componentDidMount() {
@@ -32,7 +22,6 @@ class QuizzesList extends React.Component {
       .then(responseJson => {
         // PASS RESPONSE INTO HANDLER TO ADD QUIZZES TO STATE
         this.context.setQuizzes(responseJson)
-        console.log(responseJson)
       })
 
     }

@@ -40,8 +40,7 @@ class FlashcardActive extends React.Component {
       .then(response => response.json())
       .then(responseJson => {
         // PASS RESPONSE TO QA HANDLER
-        this.handleQAChange(responseJson)
-        return console.log(responseJson)
+        return this.handleQAChange(responseJson)
       })
     }
     // USE ON CLICK OF FLIP BUTTON TO FLIP FROM QUESTION TO ANSWER
@@ -72,15 +71,13 @@ class FlashcardActive extends React.Component {
         })
         .then(response => response.json())
         .then(responseJson => {
-          return console.log(responseJson)
+          return responseJson
         })
         // REROUTE BACK TO THE HOME PAGE ON COMPLETION
         this.props.history.push('/home')
     }
 
     render() {
-        
-        console.log(this.props)
         // INDEX IS THE CARD ID -1 CARD ID COMES FROM URL ROUTE
         const cardId = Number(this.props.match.params.cardId)
         const question = this.state.question

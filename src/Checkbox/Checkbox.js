@@ -21,7 +21,6 @@ class Checkbox extends React.Component {
 
     render() {
         // IF CHECKED RETURN WITH CLASSNAME 'CHECKED' ELSE RETURN WITHOUT
-        console.log(this.state)
         if (this.state.checked === true) {
             return (
                 <label htmlFor={this.props.cardId} className="checked">

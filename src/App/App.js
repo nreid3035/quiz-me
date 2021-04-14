@@ -19,56 +19,10 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      userInfo: {},
       flashcards: [],
       quizzes: []
     }
   }
-
-  setUserInfo = (userObj) => {
-    this.setState({
-      userInfo: userObj
-    })
-  }
-
-  setFlashcards = (flashcards) => {
-    this.setState({
-      flashcards: flashcards
-    })
-  }
-
-  handleAddFlashcard = (flashcard) => {
-    this.setState({
-      flashcards: [
-        ...this.state.flashcards,
-        flashcard
-      ]
-    })
-  }
-
-  handleAddQuiz = (newQuiz) => {
-    this.setState({
-      quizzes: [
-        ...this.state.quizzes,
-        newQuiz
-      ]
-    })
-  }
-
-  handleFlashcardDelete = (flashcardId) => {
-    console.log(flashcardId)
-    const validCards = this.state.flashcards.filter(card => card.cardId !== flashcardId)
-    this.setState({
-      flashcards: validCards
-    })
-  }
-
-  handleQuizDelete = (quizId) => {
-    const validQuizzes = this.state.quizzes.filter(quiz => quiz.quizId !== quizId)
-    this.setState({
-      quizzes: validQuizzes
-    })
-  } 
 
   // SET QUIZZES IN CONTEXT FOR QUIZZESLIST
   setQuizzes = (quizzes) => {
@@ -96,7 +50,6 @@ class App extends React.Component {
     this.setState({
       flashcards: [...this.state.flashcards, flashcard] 
     })
-    console.log(flashcard)
    }
 
   
@@ -156,17 +109,10 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     // VALUES TO BE ADDED TO CONTEXT
     const value = {
-      userInfo: this.state.userInfo,
       flashcards: this.state.flashcards,
       quizzes: this.state.quizzes,
-      handleAddFlashcard: this.handleAddFlashcard,
-      handleAddQuiz: this.handleAddQuiz,
-      handleFlashcardDelete: this.handleFlashcardDelete,
-      handleQuizDelete: this.handleQuizDelete,
-      setUserInfo: this.setUserInfo,
       setFlashFromPost: this.setFlashFromPost,
       setFlashcards: this.setFlashcards,
       setQuizzes: this.setQuizzes,

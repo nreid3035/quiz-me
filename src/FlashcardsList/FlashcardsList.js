@@ -9,14 +9,7 @@ import './FlashcardsList.css'
 
 class FlashcardsList extends React.Component {
     // DECLARE CONTEXT TYPE
-    static contextType = QuizMeContext
-
-    // STATE WILL HOLD FLAHCARDS AFTER THE FETCH REQUEST
-    
-
-    // HANDLER TO SET THE STATE OF THE FLASHCARDS
-    
- 
+    static contextType = QuizMeContext 
     
     // MOUNTED GET REQUEST TO API/FLASHCARDS
     componentDidMount() {
@@ -27,7 +20,6 @@ class FlashcardsList extends React.Component {
       })
       .then(response => response.json())
       .then(responseJson => {
-        console.log(responseJson)
         // SET STATE USING FETCH RESPONSE
         this.context.setFlashcards(responseJson)
       })

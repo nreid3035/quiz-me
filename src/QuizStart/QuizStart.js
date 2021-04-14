@@ -6,6 +6,7 @@ import './QuizStart.css'
 
 class QuizStart extends React.Component {
     static contextType = QuizMeContext
+    // STATE HOLDS QUIZ NAME AND THE NUMBER OF QUESTIONS
     constructor(props) {
         super(props)
         this.state = {
@@ -14,6 +15,7 @@ class QuizStart extends React.Component {
         }
     }
 
+    // SETS STATE OF QUIZ START FROM THE FETCH RESPONSE
     setQuizStartState = (quizInfo) => {
         this.setState({
             quiz_name: quizInfo[0].quiz_name,
@@ -21,6 +23,7 @@ class QuizStart extends React.Component {
         })
     }
 
+    // MOUNT COMPONENT TO FETCH QUIZ BY ID
     componentDidMount() {
         fetch(`${config.API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
             headers: {
@@ -29,6 +32,7 @@ class QuizStart extends React.Component {
         })
         .then(response => response.json())
         .then(responseJson => {
+            // PASS RESPONSE TO QUIZSTART HANDLER
             this.setQuizStartState(responseJson)
         })
     }

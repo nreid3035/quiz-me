@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './Login.css'
 import config from '../config'
 import QuizMeContext from '../QuizMeContext'
@@ -28,14 +27,12 @@ class Login extends React.Component {
             body: JSON.stringify(userRequest)
         })
         .then(response => {
-            console.log(response)
             return response.json()
         })
         .then(responseJson => {
             // ADD JWT TOKEN TO LOCAL STORAGE, ROUTE TO HOME
             localStorage.setItem('session_token', responseJson.token)
             this.props.history.push('/home')
-            return console.log(responseJson)
         })
             
     }

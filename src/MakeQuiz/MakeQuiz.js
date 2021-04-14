@@ -65,7 +65,6 @@ class MakeQuiz extends React.Component {
         .then(response => response.json())
         .then(responseJson => {
             this.context.setQuizFromPost(responseJson)
-            console.log(responseJson)
         })
 
         // REROUTE TO QUIZZES LIST
@@ -106,7 +105,6 @@ class MakeQuiz extends React.Component {
      
 
     render() {
-        console.log(this.state)
 
         // ARRAY OF CHECKBOX ELEMENTS MAPPED FROM FLASHCARDS ARRAY
         const checkboxes = this.state.flashcards.map((card, i) => {
