@@ -34,11 +34,9 @@ class AddFlashcard extends React.Component {
         .then(responseJson => {
             // ADD TO STATE OF FLASHCARDS LIST
             this.context.setFlashFromPost(responseJson)
-            console.log(responseJson)
         })
 
         // REROUTE BACK TO FLASHCARDS LIST
-        console.log(this.props)
         this.props.history.push(`/flashcards-list`)
     }
     
