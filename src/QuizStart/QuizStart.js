@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import API_BASE_URL from '../config'
 import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './QuizStart.css'
@@ -25,7 +26,7 @@ class QuizStart extends React.Component {
 
     // MOUNT COMPONENT TO FETCH QUIZ BY ID
     componentDidMount() {
-        fetch(`${config.API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
+        fetch(`${API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
             headers: {
                 'session_token': localStorage.getItem('session_token')
             }

@@ -4,6 +4,7 @@ import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
 import config from '../config'
 import './ViewQuiz.css'
+import API_BASE_URL from '../config'
 
 class ViewQuiz extends React.Component {
     static contextType = QuizMeContext
@@ -24,7 +25,7 @@ class ViewQuiz extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`${config.API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
+        fetch(`${API_BASE_URL}/quizzes/${this.props.match.params.quizId}`, {
             headers: {
                 'session_token': localStorage.getItem('session_token')
             }
@@ -38,7 +39,7 @@ class ViewQuiz extends React.Component {
     
     
     handleDeleteClick = (quizId) => {
-        fetch(`${config.API_BASE_URL}/quizzes/${quizId}`, {
+        fetch(`${API_BASE_URL}/quizzes/${quizId}`, {
             method: 'DELETE',
             headers: {
                 'session_token': localStorage.getItem('session_token')

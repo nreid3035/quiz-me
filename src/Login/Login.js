@@ -1,6 +1,6 @@
 import React from 'react'
+import API_BASE_URL from '../config'
 import './Login.css'
-import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 
 // LOGIN PAGE FOR THE QUIZ ME APP CURRENTLY MAKING NO REQUESTS
@@ -19,7 +19,7 @@ class Login extends React.Component {
             password: e.target['password'].value
         }
         // GET USER BY USERNAME AND PASSWORD VALUE
-        fetch(`${config.API_BASE_URL}/login`, {
+        fetch(`${API_BASE_URL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

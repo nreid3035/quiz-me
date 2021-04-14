@@ -1,4 +1,5 @@
 import React from 'react'
+import API_BASE_URL from '../config'
 import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './FlashcardActive.css'
@@ -32,7 +33,7 @@ class FlashcardActive extends React.Component {
 
     // MOUNT A FETCH REQUEST TO GET THE FLASHCARD BY ID 
     componentDidMount() {
-      fetch(`${config.API_BASE_URL}/flashcards/${this.props.match.params.cardId}`, {
+      fetch(`${API_BASE_URL}/flashcards/${this.props.match.params.cardId}`, {
         headers: {
           'session_token': localStorage.getItem('session_token')
         }
@@ -63,7 +64,7 @@ class FlashcardActive extends React.Component {
     // DELETE FLASHCARD BY ID HANDLER
     handleDeleteClick = (flashcardId) => {
         // DELETE FETCH REQUEST
-        fetch(`${config.API_BASE_URL}/flashcards/${flashcardId}`, {
+        fetch(`${API_BASE_URL}/flashcards/${flashcardId}`, {
           method: 'DELETE',
           headers: {
             'session_token': localStorage.getItem('session_token')

@@ -1,5 +1,6 @@
 import React from 'react' 
 import { Link } from 'react-router-dom'
+import API_BASE_URL from '../config'
 import config from '../config'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
@@ -13,7 +14,7 @@ class FlashcardsList extends React.Component {
     
     // MOUNTED GET REQUEST TO API/FLASHCARDS
     componentDidMount() {
-      fetch(`${config.API_BASE_URL}/flashcards`, {
+      fetch(`${API_BASE_URL}/flashcards`, {
         headers: {
           'session_token': localStorage.getItem('session_token')
         }

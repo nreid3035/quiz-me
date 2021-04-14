@@ -3,6 +3,7 @@ import QuizMeContext from '../QuizMeContext'
 import Checkbox from '../Checkbox/Checkbox'
 import './MakeQuiz.css'
 import config from '../config'
+import API_BASE_URL from '../config'
 
 // MAKE QUIZ COMPONENT OF QUIZ ME APP CURRENTLY MAKING NO REQUESTS
 
@@ -28,7 +29,7 @@ class MakeQuiz extends React.Component {
 
     // MOUNT GET REQUEST FOR ALL FLASHCARDS TO BE SELECTED
     componentDidMount() {
-        fetch(`${config.API_BASE_URL}/flashcards`, {
+        fetch(`${API_BASE_URL}/flashcards`, {
             headers: {
                 'session_token': localStorage.getItem('session_token')
             }
@@ -54,7 +55,7 @@ class MakeQuiz extends React.Component {
         }
 
         // POST FETCH REQUEST TO API/QUIZZES
-        fetch(`${config.API_BASE_URL}/quizzes`, {
+        fetch(`${API_BASE_URL}/quizzes`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,7 +75,6 @@ class MakeQuiz extends React.Component {
     // HANDLES THE CHANGING OF A CHECKBOX, ADDS OR REMOVES THE ID OF THE FLASHCARD TO THE STATE
     handleCheckboxChange = (e) => {
         // E IS THE CLICKING OF THE BOX, TARGET IS THE ASSOCIATED FLASHCARD
-        console.log(e.target.value)
         // IF CHECKBOX IS CHECKED ADD ID TO STATE
         if (e.target.checked === true) {
             this.setState({

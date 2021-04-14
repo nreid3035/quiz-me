@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import API_BASE_URL from "../config"
 import config from "../config"
 import './Home.css'
 
@@ -21,7 +22,7 @@ class Home extends React.Component {
 
    // MOUNT A COMPONENT TO FETCH USERINFO FOR GREETING
     componentDidMount() {
-      fetch(`${config.API_BASE_URL}/users/username-lookup`, {
+      fetch(`${API_BASE_URL}/users/username-lookup`, {
         headers: {
           'session_token': localStorage.getItem('session_token')
         }

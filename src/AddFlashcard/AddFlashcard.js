@@ -1,4 +1,5 @@
 import React from 'react'
+import API_BASE_URL from '../config'
 import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './AddFlashcard.css'
@@ -21,7 +22,7 @@ class AddFlashcard extends React.Component {
         }
 
         // POST FETCH REQUEST TO API/FLASHCARDS ENDPOINT
-        fetch(`${config.API_BASE_URL}/flashcards`, {
+        fetch(`${API_BASE_URL}/flashcards`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
