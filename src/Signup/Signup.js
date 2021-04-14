@@ -1,5 +1,5 @@
 import React from 'react'
-import config from '../config'
+import API_BASE_URL from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './Signup.css'
 
@@ -43,7 +43,7 @@ class Signup extends React.Component {
             body: JSON.stringify(newUser)
         }
         // POST REQUEST TO API/SIGNUP
-        fetch(`${config.API_BASE_URL}/signup`, requestOptions)
+        fetch(`${API_BASE_URL}/signup`, requestOptions)
         .then(response => {
             return response.json()
         })
