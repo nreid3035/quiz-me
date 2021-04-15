@@ -88,7 +88,7 @@ Follow the similar steps up to this point to clone and install dependencies for 
 
 After doing that and starting the server on a local port, change the API_BASE_URL variable in the config.js file to connect to the local port the development server is now running on.
 
-<img src="./src/resources/client-configJS.jpg" alt="config-file" width="300">
+<img src="./src/resources/client-configJS.png" alt="config-file" width="300">
 
 run npm start to have project run on your local computer, make sure the server side expects this in the CLIENT_ORIGIN variable
 
