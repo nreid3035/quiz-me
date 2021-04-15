@@ -2,7 +2,6 @@ import React from 'react'
 import QuizMeContext from '../QuizMeContext'
 import Checkbox from '../Checkbox/Checkbox'
 import './MakeQuiz.css'
-import config from '../config'
 import API_BASE_URL from '../config'
 
 // MAKE QUIZ COMPONENT OF QUIZ ME APP CURRENTLY MAKING NO REQUESTS

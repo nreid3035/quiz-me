@@ -3,7 +3,6 @@ import QuizMeContext from '../QuizMeContext'
 import Quiz from '../Quiz/Quiz'
 import { Link } from 'react-router-dom'
 import './QuizzesList.css'
-import config from '../config'
 import API_BASE_URL from '../config'
 
 // QUIZZES LIST COMPONENT OF QUIZ ME APP

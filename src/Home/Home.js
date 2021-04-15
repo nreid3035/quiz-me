@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import API_BASE_URL from "../config"
-import config from "../config"
 import './Home.css'
 
 // HOME PAGE FOR THE QUIZ ME APP

@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Quiz Me
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Client side code for the Quiz Me application. Quiz Me is an application that allows users to make their own flashcards and group them together as quizzes to be taken at any time. Perfect for students looking for a convienient way to study during small periods of free time throughout the day. Or maybe you have some talking points you would like to refresh yourself on for a meeting during your commute. Use cases are endless just visit quiz-me.vercel.app to sign up as a user
 
-In the project directory, you can run:
+## Usage
 
-### `npm start`
+The Signup form is required to make an account and save your flashcards and quizzes on the Quiz Me database. All fields shown are required and you will be directed to the login page if your signup is successful
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+insert image of signup form
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The Login form allows users who have already properly signed up to Login with their username and password to access their data, On success generates JSON Web Token to be added to local storage and navigates the user to the homepage
 
-### `npm test`
+insert image of login form
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you have logged in and do not see your name in the home page greeting, I encourage you to login again to be able to save and access your data properly
 
-### `npm run build`
+insert image of home page with no name
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Add Flashcard button on the home page is used to get to the add flashcard form. This form will perform a POST request adding the flashcard to the database and redirecting back to the list of flashcards
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+insert image of add flashcard form here
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The Make Quiz button on the home page will direct users to the make quiz form. This form allows users to select flashcards from their list of questions and group them together under a name. Submission of this form will perform a POST request for the quiz to the database
 
-### `npm run eject`
+insert image of make quiz form here
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If the Add Flashcard form, or the Make Quiz form fail to submit your request your login has most likely timed out and I would encourage you to navigate back to the login page to continue
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+insert image of error?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The Flashcards button will bring us to the Flashcards List, performing a GET request for all the users flashcards, authenticated by jwt
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+insert image of flashcards list
 
-## Learn More
+The Quizzes button on the home page will bring us to the Quizzes List, performing a GET request for all the users quizzes, authenticated by jwt
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+insert image of quizzes list
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If either the flashcards or the quizzes list fails to load you have most likely timed out of your login, I would encourage you to navigate back to the login page and submit that again to solve the issue
 
-### Code Splitting
+insert image of list failing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Clicking on a flashcard allows you to view the card and its content. The question will be displayed first with the option to flip over and view the answer available as well. A back button is present allowing users to go to back to the last page in the app they had visited. A delete button is present as well and will delete the flashcard from the database on click, even if the flashcard was accessed from within a quiz.
 
-### Analyzing the Bundle Size
+insert image of the flashcard active page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Clicking View Quiz on any quiz in the quiz list will allow the user to view the name of the quiz and the flashcards assigned to that quiz as well
 
-### Making a Progressive Web App
+insert image of view quiz page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Clicking on take quiz will bring you to the quiz start page where you will see some basic info about the quiz you are about to begin including the quiz name and how many questions are in the quiz
 
-### Advanced Configuration
+insert image of quiz start page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Starting the quiz will bring you to the first question, You will have the option to flip from the question, revealing the answer at which point you can click the "correct" button or the "wrong" button depending on how you answered, The next question will then be generated and the app will keep track of your score behind the scenes
 
-### Deployment
+insert images of quizactive
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Once the last question has been answered, the results of the quiz will be generated revealing your overall score and giving you the option to either retake the quiz, or navigate to the home page.
 
-### `npm run build` fails to minify
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To install and add on to the project clone the repository to your local environment using git bash (or your prefered method) 
+
+'''bash
+git clone (repo link here) 
+'''
+
+run npm install to install dependencies from project
+
+'''bash
+npm install
+'''
+
+run npm start to have project run on your local computer
+
+'''bash
+npm start
+'''
+
+This should start the project on your local environment, connected to the deployed api for requests
+
+## License
+MIT License
+
+Copyright (c) [2021] [Nicholas Reid]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

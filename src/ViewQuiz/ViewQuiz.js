@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Flashcard from '../Flashcard/Flashcard'
 import QuizMeContext from '../QuizMeContext'
-import config from '../config'
 import './ViewQuiz.css'
 import API_BASE_URL from '../config'
 

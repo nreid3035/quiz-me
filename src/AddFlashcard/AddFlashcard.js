@@ -1,6 +1,5 @@
 import React from 'react'
 import API_BASE_URL from '../config'
-import config from '../config'
 import QuizMeContext from '../QuizMeContext'
 import './AddFlashcard.css'
 
