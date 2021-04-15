@@ -8,7 +8,7 @@ Client side code for the Quiz Me application. Quiz Me is an application that all
 
 The Signup form is required to make an account and save your flashcards and quizzes on the Quiz Me database. All fields shown are required and you will be directed to the login page if your signup is successful
 
-![Signup Form](./src/resources/QuizMeSignup.jpg)
+<img src="./src/resources/QuizMeSignup.jpg" alt="Signup Form" width="200">
 
 The Login form allows users who have already properly signed up to Login with their username and password to access their data, On success generates JSON Web Token to be added to local storage and navigates the user to the homepage
 
