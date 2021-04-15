@@ -60,6 +60,14 @@ insert images of quizactive
 
 Once the last question has been answered, the results of the quiz will be generated revealing your overall score and giving you the option to either retake the quiz, or navigate to the home page.
 
+## Stack
+
+- React
+- JSX
+- JavaScript
+- CSS
+- HTML
+
 ## Installation
 
 To install and add on to the project clone the repository to your local environment using git bash (or your prefered method) 
@@ -74,13 +82,18 @@ run npm install to install dependencies from project
 npm install
 ```
 
-run npm start to have project run on your local computer
+Follow the similar steps up to this point to clone and install dependencies for the api server side code to this application at https://github.com/nreid3035/quiz-me-api. This will be neccessary to dodge the cors issue you will get if you try to run the client side in development, and connect it to the deployed api which is in production.
+
+After doing that and starting the server on a local port, change the API_BASE_URL variable in the config.js file to connect to the local port the development server is now running on.
+
+insert image of config file to be changed
+
+run npm start to have project run on your local computer, make sure the server side expects this in the CLIENT_ORIGIN variable
 
 ```bash
 npm start
 ```
 
-This should start the project on your local environment, connected to the deployed api for requests
 
 ## License
 MIT License
