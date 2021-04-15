@@ -64,21 +64,21 @@ Once the last question has been answered, the results of the quiz will be genera
 
 To install and add on to the project clone the repository to your local environment using git bash (or your prefered method) 
 
-'''bash
+```bash
 git clone (repo link here) 
-'''
+```
 
 run npm install to install dependencies from project
 
-'''bash
+```bash
 npm install
-'''
+```
 
 run npm start to have project run on your local computer
 
-'''bash
+```bash
 npm start
-'''
+```
 
 This should start the project on your local environment, connected to the deployed api for requests
 
